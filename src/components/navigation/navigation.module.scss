@@ -1,0 +1,41 @@
+.navigation {
+  display: flex;
+  align-items: flex-end;
+  &__list {
+    list-style: none;
+    display: flex;
+    gap: 40px;
+    margin: 0;
+    padding: 0;
+    &_item:after {
+      content: "";
+      display: block;
+      height: 1px;
+      background-color: #fff;
+      opacity: 0;
+      transition: 0.2s;
+    }
+    &_item:hover:after {
+      content: "";
+      display: block;
+      height: 1px;
+      background-color: #fff;
+      opacity: 1;
+    }
+    &_link {
+      text-decoration: none;
+      font-size: 12px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+      color: #fff;
+      &.active {
+        color: aqua;
+      }
+    }
+  }
+}
+
+.logo {
+  transform: translateX(5px);
+}
