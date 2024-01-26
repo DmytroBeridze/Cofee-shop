@@ -4,6 +4,7 @@ import "./coffeeHouse.scss";
 import AboutUs from "./components/about-us/AboutUs";
 import Main from "./components/main/Main";
 import OurBest from "./components/our-best/OurBest";
+import Footer from "../../footer/Footer";
 
 export default function CoffeeHouse({ productsData }) {
   return (
@@ -11,6 +12,7 @@ export default function CoffeeHouse({ productsData }) {
       <Main />
       <AboutUs />
       <OurBest productsData={productsData} />
+      <Footer />
     </>
     // <section className="main">
     //   <h1 className="main__title">Everything You Love About Coffee</h1>
