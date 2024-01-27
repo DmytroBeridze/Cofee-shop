@@ -8,6 +8,7 @@ import Pleasure from "../pages/pleasure/pleasure";
 import More from "../pages/more/More";
 import { ProductsData } from "../products-data/ProductsData";
 import "./App.scss";
+import Footer from "../footer/Footer";
 
 class App extends React.Component {
   constructor(props) {
@@ -15,12 +16,17 @@ class App extends React.Component {
     this.state = {
       productsData: ProductsData,
     };
+    this.listItemsData = [
+      { name: "Coffee house", path: "/" },
+      { name: "Our coffee", path: "ourCoffe" },
+      { name: "For your pleasure", path: "pleasure" },
+    ];
   }
   render() {
     const { productsData } = this.state;
     return (
       <div className="App">
-        <Header />
+        <Header listItemsData={this.listItemsData} />
         <Routes>
           <Route
             path="/"
@@ -30,6 +36,7 @@ class App extends React.Component {
           <Route path="pleasure" element={<Pleasure />} />
           <Route path="more" element={<More />} />
         </Routes>
+        <Footer listItemsData={this.listItemsData} />
       </div>
     );
   }

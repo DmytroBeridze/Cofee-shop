@@ -22,13 +22,13 @@ export default class Header extends React.Component {
           <Navigation
             toggleBurger={this.toggleBurger}
             burgerState={this.state.burgerState}
+            listItemsData={this.props.listItemsData}
           />
         </div>
         <BurgerButton
           toggleBurger={this.toggleBurger}
           burgerState={this.state.burgerState}
         />
-        {/* fggggggggggggggggggggggggggfgfggffgfg */}
       </header>
     );
   }

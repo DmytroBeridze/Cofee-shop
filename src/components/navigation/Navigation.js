@@ -5,7 +5,7 @@ import { NavLink } from "react-router-dom";
 import BurgerButton from "../burger-button/BurgerButton";
 import CoffeBeansIcon from "../coffe-beans-icon/coffeBeansIcon";
 
-export default class extends React.Component {
+export default class Navigation extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -22,23 +22,24 @@ export default class extends React.Component {
     // if (this.state.burgerState) {
     //   navState += " navShow";
     // }
-    const { toggleBurger, burgerState } = this.props;
+    const { toggleBurger, burgerState, listItemsData, fontColor } = this.props;
     let navState = "navigation__list";
     if (burgerState) {
       navState += " navShow";
     }
-
-    const listItemsData = [
-      { name: "Coffee house", path: "/" },
-      { name: "Our coffee", path: "ourCoffe" },
-      { name: "For your pleasure", path: "pleasure" },
-    ];
+    console.log(fontColor);
+    // const listItemsData = [
+    //   { name: "Coffee house", path: "/" },
+    //   { name: "Our coffee", path: "ourCoffe" },
+    //   { name: "For your pleasure", path: "pleasure" },
+    // ];
     const listItems = listItemsData.map(({ name, path }) => {
       return (
         <li className="navigation__list_item" key={name}>
           <NavLink
             onClick={toggleBurger}
             className="navigation__list_link"
+            style={{ color: `${fontColor}` }}
             to={path}
           >
             {name}
@@ -94,10 +95,10 @@ export default class extends React.Component {
             {/* <img src="./icons/header/coffee-beans.svg" alt="cofee" /> */}
           </div>
           <ul className={navState}>
-            {/* <BurgerButton
-              toggleBurger={this.toggleBurger}
-              burgerState={this.state.burgerState}
-            /> */}
+            <BurgerButton
+              toggleBurger={toggleBurger}
+              burgerState={burgerState}
+            />
             <CoffeBeansIcon iconClass="nav__Logo" />
             {listItems}
           </ul>
