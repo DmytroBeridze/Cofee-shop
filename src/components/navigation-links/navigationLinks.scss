@@ -1,0 +1,29 @@
+.footerContainer {
+  background-color: rgb(65, 94, 12);
+}
+.navigation__list-footer {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  justify-content: center;
+  align-items: end;
+  list-style: none;
+  padding: 30px 5px;
+  & .navigation__list_link {
+    &:after {
+      content: "";
+      display: block;
+      height: 1px;
+      background-color: #0e0202;
+      opacity: 0;
+      transition: 0.1s;
+    }
+    &:hover:after {
+      content: "";
+      display: block;
+      height: 1px;
+      background-color: #140404;
+      opacity: 1;
+    }
+  }
+}

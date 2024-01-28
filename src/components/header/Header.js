@@ -20,6 +20,7 @@ export default class Header extends React.Component {
       <header className={styles.header}>
         <div className="container">
           <Navigation
+            fontColor="#fff"
             toggleBurger={this.toggleBurger}
             burgerState={this.state.burgerState}
             listItemsData={this.props.listItemsData}
