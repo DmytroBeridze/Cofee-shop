@@ -1,5 +1,5 @@
-import { NavLink } from "react-router-dom";
 import "./navigationLinks.scss";
+import { NavLink } from "react-router-dom";
 
 export default function NavigationLinks({
   listItemsData,

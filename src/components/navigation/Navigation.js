@@ -34,23 +34,7 @@ export default class Navigation extends React.Component {
     //   { name: "Our coffee", path: "ourCoffe" },
     //   { name: "For your pleasure", path: "pleasure" },
     // ];
-    // !-------- list items
 
-    // const listItems = listItemsData.map(({ name, path }) => {
-    //   return (
-    //     <li className="navigation__list_item" key={name}>
-    //       <NavLink
-    //         onClick={toggleBurger}
-    //         className="navigation__list_link"
-    //         style={{ color: `${fontColor}` }}
-    //         to={path}
-    //       >
-    //         {name}
-    //       </NavLink>
-    //     </li>
-    //   );
-    // });
-    // !--------------
     return (
       <>
         <nav className="navigation">

@@ -1,0 +1,14 @@
+.footer {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 20px;
+  background-color: #fff;
+}
+.footerContainer {
+  display: flex;
+  justify-content: center;
+  padding: 30px 5px;
+}
+.black-coffe-logo {
+  transform: translateX(3px);
+}

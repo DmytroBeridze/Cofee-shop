@@ -6,7 +6,6 @@ export default function Pleasure() {
       <div style={{ height: "400px", backgroundColor: "brown" }}>
         For your pleasure
       </div>
-      ;
     </>
   );
 }
