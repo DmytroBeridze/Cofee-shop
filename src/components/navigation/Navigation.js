@@ -1,52 +1,39 @@
-import React from "react";
-import { NavLink } from "react-router-dom";
 // import styles from "./navigation.module.scss";
 import "./navigation.scss";
+import React from "react";
+import { NavLink } from "react-router-dom";
 import BurgerButton from "../burger-button/BurgerButton";
 import CoffeBeansIcon from "../coffe-beans-icon/coffeBeansIcon";
+import NavigationLinks from "../navigation-links/NavigationLinks";
 
 export default class Navigation extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      burgerState: false,
-    };
-  }
+  // constructor(props) {
+  //   super(props);
+  //   this.state = {
+  //     burgerState: false,
+  //   };
+  // }
 
-  toggleBurger = () => {
-    this.setState({ burgerState: !this.state.burgerState });
-  };
+  // toggleBurger = () => {
+  //   this.setState({ burgerState: !this.state.burgerState });
+  // };
 
   render() {
-    let navState = "navigation__list";
-    if (this.state.burgerState) {
-      navState += " navShow";
-    }
-    // const { toggleBurger, burgerState } = this.props;
     // let navState = "navigation__list";
-    // if (burgerState) {
+    // if (this.state.burgerState) {
     //   navState += " navShow";
     // }
+    const { toggleBurger, burgerState, listItemsData } = this.props;
+    let navState = "navigation__list";
+    if (burgerState) {
+      navState += " navShow";
+    }
 
-    const listItemsData = [
-      { name: "Coffee house", path: "/" },
-      { name: "Our coffee", path: "ourCoffe" },
-      { name: "For your pleasure", path: "pleasure" },
-    ];
-
-    const listItems = listItemsData.map(({ name, path }) => {
-      return (
-        <li className="navigation__list_item" key={name}>
-          <NavLink
-            onClick={this.toggleBurger}
-            className="navigation__list_link"
-            to={path}
-          >
-            {name}
-          </NavLink>
-        </li>
-      );
-    });
+    // const listItemsData = [
+    //   { name: "Coffee house", path: "/" },
+    //   { name: "Our coffee", path: "ourCoffe" },
+    //   { name: "For your pleasure", path: "pleasure" },
+    // ];
 
     return (
       <>
@@ -96,17 +83,22 @@ export default class Navigation extends React.Component {
           </div>
           <ul className={navState}>
             <BurgerButton
-              toggleBurger={this.toggleBurger}
-              burgerState={this.state.burgerState}
+              toggleBurger={toggleBurger}
+              burgerState={burgerState}
             />
             <CoffeBeansIcon iconClass="nav__Logo" />
-            {listItems}
+            <NavigationLinks
+              listItemsData={listItemsData}
+              toggleBurger={toggleBurger}
+              fontColor="#FFFFFF"
+            />
+            {/* {listItems} */}
           </ul>
         </nav>
-        <BurgerButton
+        {/* <BurgerButton
           toggleBurger={this.toggleBurger}
           burgerState={this.state.burgerState}
-        />
+        /> */}
       </>
     );
   }
