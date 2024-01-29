@@ -22,6 +22,10 @@ class App extends React.Component {
       { name: "For your pleasure", path: "pleasure" },
     ];
   }
+  getFormData = (userName, userMail, userPhone) => {
+    console.log(userName, userMail, userPhone);
+  };
+
   render() {
     const { productsData } = this.state;
     return (
@@ -30,7 +34,12 @@ class App extends React.Component {
         <Routes>
           <Route
             path="/"
-            element={<CoffeeHouse productsData={productsData} />}
+            element={
+              <CoffeeHouse
+                productsData={productsData}
+                getFormData={this.getFormData}
+              />
+            }
           />
           <Route path="ourCoffe" element={<OurCoffe />} />
           <Route path="pleasure" element={<Pleasure />} />

@@ -6,13 +6,13 @@ import AboutUs from "./components/about-us/AboutUs";
 import OurBest from "./components/our-best/OurBest";
 import { MainForm } from "../../forms/Forms";
 
-export default function CoffeeHouse({ productsData }) {
+export default function CoffeeHouse({ productsData, getFormData }) {
   return (
     <>
       <Main />
       <AboutUs />
       <OurBest productsData={productsData} />
-      <MainForm />
+      <MainForm getFormData={getFormData} />
     </>
     // <section className="main">
     //   <h1 className="main__title">Everything You Love About Coffee</h1>
