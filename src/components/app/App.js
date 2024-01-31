@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, json } from "react-router-dom";
 import Header from "../header/Header";
 import React from "react";
 
@@ -9,24 +9,58 @@ import More from "../pages/more/More";
 import { ProductsData } from "../products-data/ProductsData";
 import "./App.scss";
 import Footer from "../footer/Footer";
+import getFormData from "../sendForm/SendForm";
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       productsData: ProductsData,
+      formMessage: "",
     };
+
     this.listItemsData = [
       { name: "Coffee house", path: "/" },
       { name: "Our coffee", path: "ourCoffe" },
       { name: "For your pleasure", path: "pleasure" },
     ];
   }
-  getFormData = (userName, userMail, userPhone) => {
-    console.log(userName, userMail, userPhone);
+
+  getFormData = async (userName, userMail, userPhone) => {
+    const userData = {
+      userName,
+      userMail,
+      userPhone,
+    };
+    this.setState({ formMessage: "Sending..." });
+    return fetch(
+      "https://test-key-d6afb-default-rtdb.firebaseio.com/test.json",
+      {
+        method: "POST",
+        body: JSON.stringify(userData),
+        headers: { "Content-type": "application/json" },
+      }
+    )
+      .then((response) => {
+        if (response.ok) {
+          return response.json();
+        } else throw new Error("New Error");
+      })
+      .then(() => {
+        this.setState({ formMessage: "We will contact you soon" });
+      })
+      .catch(() => {
+        this.setState({ formMessage: "Something went wrong!" });
+      })
+      .finally(() => {
+        setTimeout(() => {
+          this.setState({ formMessage: "" });
+        }, 3000);
+      });
   };
 
   render() {
+    // getFormData();
     const { productsData } = this.state;
     return (
       <div className="App">
@@ -38,6 +72,8 @@ class App extends React.Component {
               <CoffeeHouse
                 productsData={productsData}
                 getFormData={this.getFormData}
+                // getFormData={getFormData}
+                formMessage={this.state.formMessage}
               />
             }
           />
