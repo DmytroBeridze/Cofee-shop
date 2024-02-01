@@ -133,10 +133,11 @@
 // navigation list black
 .navigation__list-black {
   display: flex;
+
   flex-direction: row;
   gap: 20px;
   justify-content: center;
-  align-items: end;
+  align-items: flex-end;
   list-style: none;
 
   & .navigation__list_link {

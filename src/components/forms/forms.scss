@@ -1,0 +1,148 @@
+.form-container {
+  max-width: 1440px;
+  margin: 0 auto;
+  background: #2a1a14;
+  color: #fff;
+  padding: 20px 10px;
+  position: relative;
+
+  &::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url(../../../public/icons/main/coffee-bean-bg.svg);
+    background-size: 30px;
+    background-repeat: repeat;
+    background-position: center;
+    opacity: 0.4;
+    z-index: 1;
+  }
+  & .main__logo {
+    position: relative;
+    z-index: 2;
+  }
+}
+.main-form {
+  max-width: 1200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  gap: 10px;
+  position: relative;
+  z-index: 2;
+  @media (max-width: 1150px) {
+    flex-direction: column;
+    margin-left: -50px;
+    // margin-left: 0px;
+  }
+  @media (max-width: 500px) {
+    margin-left: 0px;
+  }
+
+  &__title {
+    text-align: center;
+    margin-top: 20px;
+    position: relative;
+    z-index: 2;
+  }
+  &__inputs-wrapper {
+    // margin: 0 auto;
+    display: flex;
+    gap: 30px;
+    align-items: center;
+    justify-content: space-between;
+    padding: 30px 10px 20px;
+
+    @media (max-width: 850px) {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+
+  &__field {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+
+    @media (max-width: 500px) {
+      align-items: flex-start;
+      flex-direction: column;
+    }
+  }
+  & label {
+    font-size: 14px;
+  }
+  & input {
+    // width: clamp(5rem, 1.071rem + 19.64vw, 18.75rem);
+    height: 40px;
+    border-radius: 5px;
+    padding: 0 10px;
+    outline: none;
+    border: none;
+    box-shadow: 0px 0px 15px -3px rgba(0, 0, 0, 0.91);
+    @media (max-width: 850px) {
+      width: clamp(12.5rem, 1.179rem + 56.6vw, 31.25rem);
+      //   width: clamp(6.25rem, -8.844rem + 75.47vw, 31.25rem);
+    }
+  }
+}
+#form__submit {
+  font-size: 14px;
+  font-weight: 700;
+  font-family: Merienda;
+  padding: 6px 20px 6px;
+  margin-top: 10px;
+  border-radius: 3px;
+  border: 1px solid #fff;
+  color: #fff;
+  background: transparent;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  max-width: 100px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #ffffff3d;
+  }
+  &:active {
+    background-color: #ffffff79;
+  }
+  @media (max-width: 1150px) {
+    width: 200px;
+    transform: translateX(25px);
+    margin-top: 0;
+  }
+  @media (max-width: 500px) {
+    transform: translateX(0);
+  }
+}
+// .main-form__name.inputError {
+//   border: 1px solid red;
+// }
+
+.user-error {
+  position: absolute;
+  font-size: 14px;
+  display: block;
+  margin-top: 5px;
+  color: red;
+}
+.error-container {
+  position: "relative";
+}
+
+.main-form__message {
+  text-align: center;
+  position: relative;
+  z-index: 2;
+  @media (max-width: 1150px) {
+    margin-top: 20px;
+  }
+  & img {
+    width: 30px;
+  }
+}
