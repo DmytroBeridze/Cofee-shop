@@ -134,13 +134,15 @@
 .error-container {
   position: "relative";
 }
+
 .main-form__message {
   text-align: center;
-
+  position: relative;
+  z-index: 2;
   @media (max-width: 1150px) {
     margin-top: 20px;
   }
-  // @media (max-width:) {
-  // }
-  // height: "60px";
+  & img {
+    width: 30px;
+  }
 }

@@ -9,8 +9,7 @@ import More from "../pages/more/More";
 import { ProductsData } from "../products-data/ProductsData";
 import "./App.scss";
 import Footer from "../footer/Footer";
-import getFormData from "../sendForm/SendForm";
-
+import getFormData from "../../components/sendForm/SendForm";
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -26,25 +25,16 @@ class App extends React.Component {
     ];
   }
 
-  getFormData = async (userName, userMail, userPhone) => {
-    const userData = {
-      userName,
-      userMail,
-      userPhone,
-    };
-    this.setState({ formMessage: "Sending..." });
-    return fetch(
-      "https://test-key-d6afb-default-rtdb.firebaseio.com/test.json",
-      {
-        method: "POST",
-        body: JSON.stringify(userData),
-        headers: { "Content-type": "application/json" },
-      }
-    )
+  // axios POST
+  testSend = (data) => {
+    this.setState({
+      formMessage: <img src="./icons/loader.svg" alt="load" />,
+    });
+    getFormData(data)
       .then((response) => {
-        if (response.ok) {
-          return response.json();
-        } else throw new Error("New Error");
+        if (response.status > 399) {
+          throw new Error("New Error");
+        }
       })
       .then(() => {
         this.setState({ formMessage: "We will contact you soon" });
@@ -60,7 +50,6 @@ class App extends React.Component {
   };
 
   render() {
-    // getFormData();
     const { productsData } = this.state;
     return (
       <div className="App">
@@ -71,8 +60,7 @@ class App extends React.Component {
             element={
               <CoffeeHouse
                 productsData={productsData}
-                getFormData={this.getFormData}
-                // getFormData={getFormData}
+                getFormData={this.testSend}
                 formMessage={this.state.formMessage}
               />
             }
