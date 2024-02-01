@@ -10,6 +10,7 @@ import { ProductsData } from "../products-data/ProductsData";
 import "./App.scss";
 import Footer from "../footer/Footer";
 import getFormData from "../../components/sendForm/SendForm";
+import Basket from "../basket/Basket";
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -68,6 +69,7 @@ class App extends React.Component {
           <Route path="ourCoffe" element={<OurCoffe />} />
           <Route path="pleasure" element={<Pleasure />} />
           <Route path="more" element={<More />} />
+          <Route path="basket" element={<Basket />} />
         </Routes>
         <Footer listItemsData={this.listItemsData} />
       </div>
