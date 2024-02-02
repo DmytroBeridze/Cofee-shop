@@ -1,4 +1,6 @@
-import { Route, Routes, json } from "react-router-dom";
+import "./App.scss";
+
+import { Route, Routes } from "react-router-dom";
 import Header from "../header/Header";
 import React from "react";
 
@@ -7,15 +9,16 @@ import OurCoffe from "../pages/our-coffee/OurCofee";
 import Pleasure from "../pages/pleasure/pleasure";
 import More from "../pages/more/More";
 import { ProductsData } from "../products-data/ProductsData";
-import "./App.scss";
 import Footer from "../footer/Footer";
 import getFormData from "../../components/sendForm/SendForm";
-import Basket from "../basket/Basket";
+import ShoppingCart from "../shopping-cart/ShoppingCart";
+
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       productsData: ProductsData,
+      productsInCart: [],
       formMessage: "",
     };
 
@@ -26,7 +29,7 @@ class App extends React.Component {
     ];
   }
 
-  // axios POST
+  //------------------------ axios POST
   testSend = (data) => {
     this.setState({
       formMessage: <img src="./icons/loader.svg" alt="load" />,
@@ -49,9 +52,18 @@ class App extends React.Component {
         }, 3000);
       });
   };
+  //--------------------------find element from shopping cart
+
+  addProductToCart = (id) => {
+    const res = this.state.productsData.find((elem) => elem.id === id);
+    this.setState(({ productsInCart }) => ({
+      productsInCart: [...productsInCart, res],
+    }));
+  };
 
   render() {
-    const { productsData } = this.state;
+    const { productsData, productsInCart } = this.state;
+    console.log(productsInCart);
     return (
       <div className="App">
         <Header listItemsData={this.listItemsData} />
@@ -63,13 +75,17 @@ class App extends React.Component {
                 productsData={productsData}
                 getFormData={this.testSend}
                 formMessage={this.state.formMessage}
+                addProductToCart={this.addProductToCart}
               />
             }
           />
           <Route path="ourCoffe" element={<OurCoffe />} />
           <Route path="pleasure" element={<Pleasure />} />
-          <Route path="more" element={<More />} />
-          <Route path="basket" element={<Basket />} />
+          <Route
+            path="more"
+            element={<More addProductToCart={this.addProductToCart} />}
+          />
+          <Route path="shoppingCart" element={<ShoppingCart />} />
         </Routes>
         <Footer listItemsData={this.listItemsData} />
       </div>

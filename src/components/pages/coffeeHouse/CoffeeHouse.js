@@ -10,22 +10,17 @@ export default function CoffeeHouse({
   productsData,
   getFormData,
   formMessage,
+  addProductToCart,
 }) {
   return (
     <>
       <Main />
       <AboutUs />
-      <OurBest productsData={productsData} />
+      <OurBest
+        productsData={productsData}
+        addProductToCart={addProductToCart}
+      />
       <MainForm getFormData={getFormData} formMessage={formMessage} />
     </>
-    // <section className="main">
-    //   <h1 className="main__title">Everything You Love About Coffee</h1>
-
-    //   <CoffeBeansIcon iconClass={"main__logo"} />
-    //   <h2 className="main__subtitle">
-    //     We makes every day full of energy and taste Want to try our beans?
-    //   </h2>
-    //   <MainButton />
-    // </section>
   );
 }

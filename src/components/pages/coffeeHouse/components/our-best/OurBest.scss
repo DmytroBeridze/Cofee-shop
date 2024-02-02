@@ -18,45 +18,6 @@
       max-width: 300px;
     }
   }
-  &__card {
-    width: 220px !important;
-    height: 240px;
-    height: 300px;
-    border-radius: 8px;
-    background: rgba(255, 255, 255, 0.65);
-    padding: 20px 22px 0;
-    display: flex !important;
-    flex-direction: column;
-    align-items: center;
-    gap: 14px;
-  }
-  &__img {
-    width: 150px;
-    height: 130px;
-    & img {
-      width: 100%;
-      height: 100%;
-    }
-  }
-  &__info {
-    width: 180px;
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-  }
-  &__desc {
-    font-size: 14px;
-    font-weight: 400;
-    text-align: center;
-  }
-  &__price,
-  &__country,
-  &__weight {
-    font-size: 14px;
-    font-weight: 700;
-    align-self: end;
-    margin-right: 8px;
-  }
 }
 // Ract-swiper inside stile
 .our-best-slide .slick-slide {
