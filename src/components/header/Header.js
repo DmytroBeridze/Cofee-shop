@@ -1,7 +1,8 @@
-import BurgerButton from "../burger-button/BurgerButton";
-import Navigation from "../navigation/Navigation";
 import styles from "./Header.module.scss";
 import React from "react";
+import BurgerButton from "../burger-button/BurgerButton";
+import ShoppingCartButton from "../shopping-cart-button/ShoppingCartButton";
+import Navigation from "../navigation/Navigation";
 
 export default class Header extends React.Component {
   constructor(props) {
@@ -29,6 +30,9 @@ export default class Header extends React.Component {
         <BurgerButton
           toggleBurger={this.toggleBurger}
           burgerState={this.state.burgerState}
+        />
+        <ShoppingCartButton
+          toggleShoppingCart={this.props.toggleShoppingCart}
         />
       </header>
     );

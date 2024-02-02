@@ -1,0 +1,10 @@
+.shopping-cart-wrapper {
+  width: 30px;
+  position: absolute;
+  top: 43px;
+  right: 40px;
+  cursor: pointer;
+  @media (max-width: 600px) {
+    right: 30px;
+  }
+}

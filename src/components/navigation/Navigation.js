@@ -7,33 +7,12 @@ import CoffeBeansIcon from "../coffe-beans-icon/coffeBeansIcon";
 import NavigationLinks from "../navigation-links/NavigationLinks";
 
 export default class Navigation extends React.Component {
-  // constructor(props) {
-  //   super(props);
-  //   this.state = {
-  //     burgerState: false,
-  //   };
-  // }
-
-  // toggleBurger = () => {
-  //   this.setState({ burgerState: !this.state.burgerState });
-  // };
-
   render() {
-    // let navState = "navigation__list";
-    // if (this.state.burgerState) {
-    //   navState += " navShow";
-    // }
     const { toggleBurger, burgerState, listItemsData } = this.props;
     let navState = "navigation__list";
     if (burgerState) {
       navState += " navShow";
     }
-
-    // const listItemsData = [
-    //   { name: "Coffee house", path: "/" },
-    //   { name: "Our coffee", path: "ourCoffe" },
-    //   { name: "For your pleasure", path: "pleasure" },
-    // ];
 
     return (
       <>
@@ -79,7 +58,6 @@ export default class Navigation extends React.Component {
                 </clipPath>
               </defs>
             </svg>
-            {/* <img src="./icons/header/coffee-beans.svg" alt="cofee" /> */}
           </div>
           <ul className={navState}>
             <BurgerButton
@@ -92,13 +70,8 @@ export default class Navigation extends React.Component {
               toggleBurger={toggleBurger}
               fontColor="#FFFFFF"
             />
-            {/* {listItems} */}
           </ul>
         </nav>
-        {/* <BurgerButton
-          toggleBurger={this.toggleBurger}
-          burgerState={this.state.burgerState}
-        /> */}
       </>
     );
   }

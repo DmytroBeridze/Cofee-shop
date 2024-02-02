@@ -19,6 +19,7 @@ class App extends React.Component {
     this.state = {
       productsData: ProductsData,
       productsInCart: [],
+      shoppingCartState: false,
       formMessage: "",
     };
 
@@ -52,8 +53,13 @@ class App extends React.Component {
         }, 3000);
       });
   };
+  // --------------------------toggle shopping cart
+  toggleShoppingCart = () => {
+    this.setState(({ shoppingCartState }) => ({
+      shoppingCartState: !shoppingCartState,
+    }));
+  };
   //--------------------------find element from shopping cart
-
   addProductToCart = (id) => {
     const res = this.state.productsData.find((elem) => elem.id === id);
     this.setState(({ productsInCart }) => ({
@@ -62,11 +68,13 @@ class App extends React.Component {
   };
 
   render() {
-    const { productsData, productsInCart } = this.state;
-    console.log(productsInCart);
+    const { productsData, shoppingCartState, productsInCart } = this.state;
     return (
       <div className="App">
-        <Header listItemsData={this.listItemsData} />
+        <Header
+          listItemsData={this.listItemsData}
+          toggleShoppingCart={this.toggleShoppingCart}
+        />
         <Routes>
           <Route
             path="/"
@@ -88,6 +96,11 @@ class App extends React.Component {
           <Route path="shoppingCart" element={<ShoppingCart />} />
         </Routes>
         <Footer listItemsData={this.listItemsData} />
+        {/* ------------cart---- */}
+        <ShoppingCart
+          shoppingCartState={shoppingCartState}
+          toggleShoppingCart={this.toggleShoppingCart}
+        />
       </div>
     );
   }
