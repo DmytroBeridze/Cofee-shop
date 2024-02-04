@@ -1,10 +1,7 @@
 import axios from "axios";
 
-function getFormData(data) {
-  return axios.post(
-    "https://test-key-d6afb-default-rtdb.firebaseio.com/test.json",
-    data
-  );
+function getFormData(URL, data) {
+  return axios.post(URL, data);
 }
 
 export default getFormData;

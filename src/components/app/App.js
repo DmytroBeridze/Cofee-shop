@@ -2,7 +2,7 @@ import "./App.scss";
 
 import { Route, Routes } from "react-router-dom";
 import Header from "../header/Header";
-import React from "react";
+import React, { useEffect } from "react";
 
 import CoffeeHouse from "../pages/coffeeHouse/CoffeeHouse";
 import OurCoffe from "../pages/our-coffee/OurCofee";
@@ -12,6 +12,7 @@ import { ProductsData } from "../products-data/ProductsData";
 import Footer from "../footer/Footer";
 import getFormData from "../../components/sendForm/SendForm";
 import ShoppingCart from "../shopping-cart/ShoppingCart";
+import PrewiewProductCard from "../pages/prewiewProductCard/PrewiewProductCard";
 
 class App extends React.Component {
   constructor(props) {
@@ -19,7 +20,9 @@ class App extends React.Component {
     this.state = {
       productsData: ProductsData,
       productsInCart: [],
+      productPrewiew: "",
       shoppingCartState: false,
+      // productPrewiewState: false,
       formMessage: "",
     };
 
@@ -28,6 +31,8 @@ class App extends React.Component {
       { name: "Our coffee", path: "ourCoffe" },
       { name: "For your pleasure", path: "pleasure" },
     ];
+    this.userRegistrationUrl =
+      "https://test-key-d6afb-default-rtdb.firebaseio.com/test.json";
   }
 
   //------------------------ axios POST
@@ -35,7 +40,7 @@ class App extends React.Component {
     this.setState({
       formMessage: <img src="./icons/loader.svg" alt="load" />,
     });
-    getFormData(data)
+    getFormData(this.userRegistrationUrl, data)
       .then((response) => {
         if (response.status > 399) {
           throw new Error("New Error");
@@ -59,16 +64,45 @@ class App extends React.Component {
       shoppingCartState: !shoppingCartState,
     }));
   };
-  //--------------------------find element from shopping cart
-  addProductToCart = (id) => {
-    const res = this.state.productsData.find((elem) => elem.id === id);
-    this.setState(({ productsInCart }) => ({
-      productsInCart: [...productsInCart, res],
-    }));
+
+  // --------------------------findIdProductForPrewiew and toggle product prewiew
+
+  findIdProductForPrewiew = (id) => {
+    const prewiew = this.state.productsData.find((elem) => elem.id === id);
+    this.setState({ productPrewiew: prewiew });
   };
 
+  //--------------------------find element from shopping cart and change  this.state.productsInCart
+  addProductToCart = () => {
+    this.setState(({ productsInCart }) => ({
+      productsInCart: [...productsInCart, this.state.productPrewiew],
+    }));
+  };
+  // addProductToCart = (id) => {
+  //   const res = this.state.productsData.find((elem) => elem.id === id);
+  //   this.setState(({ productsInCart }) => ({
+  //     productsInCart: [...productsInCart, res],
+  //   }));
+  // };
+  // -----------------------add finding element to localstorage
+  componentDidMount() {
+    if (localStorage.productsInCart) {
+      const getLocal = JSON.parse(localStorage.getItem("productsInCart"));
+      this.setState({ productsInCart: getLocal });
+    }
+  }
+  // ------------------------state updating from local storage when page is loaded
+  componentDidUpdate() {
+    localStorage.setItem(
+      "productsInCart",
+      JSON.stringify(this.state.productsInCart)
+    );
+  }
+
   render() {
-    const { productsData, shoppingCartState, productsInCart } = this.state;
+    const { productsData, shoppingCartState, productPrewiew, productsInCart } =
+      this.state;
+
     return (
       <div className="App">
         <Header
@@ -83,7 +117,8 @@ class App extends React.Component {
                 productsData={productsData}
                 getFormData={this.testSend}
                 formMessage={this.state.formMessage}
-                addProductToCart={this.addProductToCart}
+                findIdProductForPrewiew={this.findIdProductForPrewiew}
+                // addProductToCart={this.addProductToCart}
               />
             }
           />
@@ -91,16 +126,29 @@ class App extends React.Component {
           <Route path="pleasure" element={<Pleasure />} />
           <Route
             path="more"
-            element={<More addProductToCart={this.addProductToCart} />}
+            // element={<More addProductToCart={this.addProductToCart} />}
           />
-          <Route path="shoppingCart" element={<ShoppingCart />} />
+          <Route
+            path="productPrewiew"
+            element={
+              <PrewiewProductCard
+                productPrewiew={productPrewiew}
+                addProductToCart={this.addProductToCart}
+              />
+            }
+          />
         </Routes>
         <Footer listItemsData={this.listItemsData} />
         {/* ------------cart---- */}
         <ShoppingCart
           shoppingCartState={shoppingCartState}
           toggleShoppingCart={this.toggleShoppingCart}
+          productsInCart={productsInCart}
         />
+        {/* <PrewiewProductCard
+          productPrewiew={productPrewiew}
+          productPrewiewState={productPrewiewState}
+        /> */}
       </div>
     );
   }

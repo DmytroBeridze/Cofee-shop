@@ -3,12 +3,35 @@ import "./ShoppingCart.scss";
 export default function ShoppingCart({
   shoppingCartState,
   toggleShoppingCart,
+  productsInCart,
 }) {
   let activeClass = "shopping-cart";
   if (shoppingCartState) {
     activeClass += " active";
   }
 
+  const listElement = productsInCart.map((elem) => {
+    console.log(elem);
+    const { image, name, weight, cost, best, id } = elem;
+    const bestMark = best ? "Best product*" : "";
+    return (
+      <li className="shopping-cart__item" key={id}>
+        <div className="shopping-cart__prewiew">
+          <div className="shopping-cart__img">
+            <img src={`./img/product-images/${image}`} alt={name} />
+          </div>
+          <div className="shopping-cart__description">
+            <div className="shopping-cart__description_name">{name}</div>
+            <div className="shopping-cart__description_weight">{weight}</div>
+          </div>
+        </div>
+        <div className="shopping-cart__best">{bestMark}</div>
+        <div className="shopping-cart__counter">deg/eng</div>
+        <div className="shopping-cart__prise">{cost}</div>
+        <div className="shopping-cart__delete">DEL</div>
+      </li>
+    );
+  });
   return (
     <div className={activeClass}>
       <div className="shopping-cart__body">
@@ -18,42 +41,7 @@ export default function ShoppingCart({
             <img src="./icons/header/white-close.png" alt="close" />
           </div>
         </div>
-        <ul className="shopping-cart__list">
-          <li className="shopping-cart__item">
-            <div className="shopping-cart__prewiew">
-              <div className="shopping-cart__img">
-                <img src="./img/product-images/71qBQnpQFYL.png" alt="product" />
-              </div>
-              <div className="shopping-cart__description">
-                <div className="shopping-cart__description_name">
-                  Movenpick Caffe Crema
-                </div>
-                <div className="shopping-cart__description_weight">0.5kg</div>
-              </div>
-            </div>
-            <div className="shopping-cart__best">Best product</div>
-            <div className="shopping-cart__counter">deg/eng</div>
-            <div className="shopping-cart__prise">99.0</div>
-            <div className="shopping-cart__delete">DEL</div>
-          </li>
-          <li className="shopping-cart__item">
-            <div className="shopping-cart__prewiew">
-              <div className="shopping-cart__img">
-                <img src="./img/product-images/71qBQnpQFYL.png" alt="product" />
-              </div>
-              <div className="shopping-cart__description">
-                <div className="shopping-cart__description_name">
-                  Movenpick Caffe Crema
-                </div>
-                <div className="shopping-cart__description_weight">0.5kg</div>
-              </div>
-            </div>
-            <div className="shopping-cart__best">Best product</div>
-            <div className="shopping-cart__counter">deg/eng</div>
-            <div className="shopping-cart__prise">99.0</div>
-            <div className="shopping-cart__delete">DEL</div>
-          </li>
-        </ul>
+        <ul className="shopping-cart__list">{listElement}</ul>
         <div className="shopping-cart__footer">
           <button className="shopping-cart__confirm">Confirm</button>
           <label>

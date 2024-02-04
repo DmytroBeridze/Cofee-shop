@@ -6,7 +6,10 @@ const ProductsData = [
     image: "815O9ktyfUL.png",
     country: "brazil",
     best: false,
+    description:
+      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odio harum eligendi ex recusandae iusto sequi veniam magni eius ipsam, maxime, cupiditate modi eaque in, impedit similique. Molestias eius sint eos.",
     id: 1,
+    counter: 0,
   },
   {
     name: "Presto Coffee Beans",
@@ -15,7 +18,10 @@ const ProductsData = [
     image: "91Ryk2gKejL.png",
     country: "kenya",
     best: false,
+    description:
+      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odio harum eligendi ex recusandae iusto sequi veniam magni eius ipsam, maxime, cupiditate modi eaque in, impedit similique. Molestias eius sint eos.",
     id: 2,
+    counter: 0,
   },
   {
     name: "AROMISTICO Coffee",
@@ -24,7 +30,10 @@ const ProductsData = [
     image: "71qBQnpQFYL.png",
     country: "kenya",
     best: true,
+    description:
+      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odio harum eligendi ex recusandae iusto sequi veniam magni eius ipsam, maxime, cupiditate modi eaque in, impedit similique. Molestias eius sint eos.",
     id: 3,
+    counter: 0,
   },
   {
     name: "Movenpick Caffe Crema",
@@ -33,7 +42,10 @@ const ProductsData = [
     image: "2458465_2.jpg",
     country: "africa",
     best: true,
+    description:
+      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odio harum eligendi ex recusandae iusto sequi veniam magni eius ipsam, maxime, cupiditate modi eaque in, impedit similique. Molestias eius sint eos.",
     id: 4,
+    counter: 0,
   },
   {
     name: "Lavazza Qualita Oro",
@@ -42,7 +54,10 @@ const ProductsData = [
     image: "2442055-1_3.jpg",
     country: "brazil",
     best: false,
+    description:
+      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odio harum eligendi ex recusandae iusto sequi veniam magni eius ipsam, maxime, cupiditate modi eaque in, impedit similique. Molestias eius sint eos.",
     id: 5,
+    counter: 0,
   },
   {
     name: "Dallmayr Prodomo",
@@ -51,7 +66,10 @@ const ProductsData = [
     image: "2458322.jpg",
     country: "kenya",
     best: false,
+    description:
+      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odio harum eligendi ex recusandae iusto sequi veniam magni eius ipsam, maxime, cupiditate modi eaque in, impedit similique. Molestias eius sint eos.",
     id: 6,
+    counter: 0,
   },
   {
     name: "Fineberry Honduras",
@@ -60,7 +78,10 @@ const ProductsData = [
     image: "7853462_10.jpg",
     country: "colombia",
     best: false,
+    description:
+      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odio harum eligendi ex recusandae iusto sequi veniam magni eius ipsam, maxime, cupiditate modi eaque in, impedit similique. Molestias eius sint eos.",
     id: 7,
+    counter: 0,
   },
   {
     name: "Melitta BellaCrema Selection des Jahres",
@@ -69,7 +90,10 @@ const ProductsData = [
     image: "1006683-2.jpg",
     country: "guatemala",
     best: true,
+    description:
+      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odio harum eligendi ex recusandae iusto sequi veniam magni eius ipsam, maxime, cupiditate modi eaque in, impedit similique. Molestias eius sint eos.",
     id: 8,
+    counter: 0,
   },
   {
     name: "Lucaffe Mr.Exclusive",
@@ -78,7 +102,10 @@ const ProductsData = [
     image: "2462922_9.jpg",
     country: "africa",
     best: true,
+    description:
+      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odio harum eligendi ex recusandae iusto sequi veniam magni eius ipsam, maxime, cupiditate modi eaque in, impedit similique. Molestias eius sint eos.",
     id: 9,
+    counter: 0,
   },
   {
     name: "Fineberry Original Blend",
@@ -87,7 +114,10 @@ const ProductsData = [
     image: "857753.jpg",
     country: "brazil",
     best: false,
+    description:
+      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odio harum eligendi ex recusandae iusto sequi veniam magni eius ipsam, maxime, cupiditate modi eaque in, impedit similique. Molestias eius sint eos.",
     id: 10,
+    counter: 0,
   },
   {
     name: "Merrild Crema",
@@ -96,7 +126,10 @@ const ProductsData = [
     image: "1006120-1.jpg",
     country: "kenya",
     best: false,
+    description:
+      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odio harum eligendi ex recusandae iusto sequi veniam magni eius ipsam, maxime, cupiditate modi eaque in, impedit similique. Molestias eius sint eos.",
     id: 11,
+    counter: 0,
   },
   {
     name: "KIMBO Top Extreme",
@@ -105,7 +138,10 @@ const ProductsData = [
     image: "2947932-1.jpg",
     country: "colombia",
     best: false,
+    description:
+      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odio harum eligendi ex recusandae iusto sequi veniam magni eius ipsam, maxime, cupiditate modi eaque in, impedit similique. Molestias eius sint eos.",
     id: 12,
+    counter: 0,
   },
   {
     name: "Julius Meinl Jubilee",
@@ -114,7 +150,10 @@ const ProductsData = [
     image: "julius_meinl_1_1_.jpg",
     country: "guatemala",
     best: false,
+    description:
+      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odio harum eligendi ex recusandae iusto sequi veniam magni eius ipsam, maxime, cupiditate modi eaque in, impedit similique. Molestias eius sint eos.",
     id: 13,
+    counter: 0,
   },
 
   {
@@ -124,7 +163,10 @@ const ProductsData = [
     image: "490.jpg",
     country: "brazil",
     best: false,
+    description:
+      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odio harum eligendi ex recusandae iusto sequi veniam magni eius ipsam, maxime, cupiditate modi eaque in, impedit similique. Molestias eius sint eos.",
     id: 14,
+    counter: 0,
   },
   {
     name: "Magnum Exotics JAMAICA BLUE MOUNTAIN BLEND",
@@ -133,7 +175,10 @@ const ProductsData = [
     image: "2462490-2_1.jpg",
     country: "brazil",
     best: false,
+    description:
+      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odio harum eligendi ex recusandae iusto sequi veniam magni eius ipsam, maxime, cupiditate modi eaque in, impedit similique. Molestias eius sint eos.",
     id: 15,
+    counter: 0,
   },
   {
     name: "GetUp Strong Blend",
@@ -142,7 +187,10 @@ const ProductsData = [
     image: "6576555.jpg",
     country: "colombia",
     best: false,
+    description:
+      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odio harum eligendi ex recusandae iusto sequi veniam magni eius ipsam, maxime, cupiditate modi eaque in, impedit similique. Molestias eius sint eos.",
     id: 16,
+    counter: 0,
   },
   {
     name: "ILLY Monoarabica",
@@ -151,7 +199,10 @@ const ProductsData = [
     image: "3899291-1_2.jpg",
     country: "africa",
     best: true,
+    description:
+      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odio harum eligendi ex recusandae iusto sequi veniam magni eius ipsam, maxime, cupiditate modi eaque in, impedit similique. Molestias eius sint eos.",
     id: 17,
+    counter: 0,
   },
   {
     name: "Кurukahveci Mehmet Efendi Filtre",
@@ -160,7 +211,10 @@ const ProductsData = [
     image: "1004822-1.jpg",
     country: "kenya",
     best: true,
+    description:
+      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odio harum eligendi ex recusandae iusto sequi veniam magni eius ipsam, maxime, cupiditate modi eaque in, impedit similique. Molestias eius sint eos.",
     id: 18,
+    counter: 0,
   },
   {
     name: "Stefano",
@@ -169,7 +223,10 @@ const ProductsData = [
     image: "1006222-1.jpg",
     country: "africa",
     best: true,
+    description:
+      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odio harum eligendi ex recusandae iusto sequi veniam magni eius ipsam, maxime, cupiditate modi eaque in, impedit similique. Molestias eius sint eos.",
     id: 19,
+    counter: 0,
   },
 ];
 

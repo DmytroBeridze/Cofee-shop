@@ -10,7 +10,8 @@ export default function CoffeeHouse({
   productsData,
   getFormData,
   formMessage,
-  addProductToCart,
+  findIdProductForPrewiew,
+  // addProductToCart,
 }) {
   return (
     <>
@@ -18,7 +19,8 @@ export default function CoffeeHouse({
       <AboutUs />
       <OurBest
         productsData={productsData}
-        addProductToCart={addProductToCart}
+        findIdProductForPrewiew={findIdProductForPrewiew}
+        // addProductToCart={addProductToCart}
       />
       <MainForm getFormData={getFormData} formMessage={formMessage} />
     </>
