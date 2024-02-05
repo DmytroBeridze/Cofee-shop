@@ -11,8 +11,8 @@ import More from "../pages/more/More";
 import { ProductsData } from "../products-data/ProductsData";
 import Footer from "../footer/Footer";
 import getFormData from "../../components/sendForm/SendForm";
-import ShoppingCart from "../shopping-cart/ShoppingCart";
 import PrewiewProductCard from "../pages/prewiewProductCard/PrewiewProductCard";
+import ShoppingCart from "../shopping-cart/ShoppingCart.js";
 
 class App extends React.Component {
   constructor(props) {
@@ -22,8 +22,10 @@ class App extends React.Component {
       productsInCart: [],
       productPrewiew: "",
       shoppingCartState: false,
-      // productPrewiewState: false,
       formMessage: "",
+      quantityProduct: 0,
+
+      // productPrewiewState: false,
     };
 
     this.listItemsData = [
@@ -40,6 +42,7 @@ class App extends React.Component {
     this.setState({
       formMessage: <img src="./icons/loader.svg" alt="load" />,
     });
+
     getFormData(this.userRegistrationUrl, data)
       .then((response) => {
         if (response.status > 399) {
@@ -64,34 +67,78 @@ class App extends React.Component {
       shoppingCartState: !shoppingCartState,
     }));
   };
-
   // --------------------------findIdProductForPrewiew and toggle product prewiew
-
   findIdProductForPrewiew = (id) => {
     const prewiew = this.state.productsData.find((elem) => elem.id === id);
     this.setState({ productPrewiew: prewiew });
   };
 
   //--------------------------find element from shopping cart and change  this.state.productsInCart
-  addProductToCart = () => {
+  // !!--------------------------------------
+  addProductToCart = (id) => {
+    if (!this.state.productsInCart.includes(this.state.productPrewiew)) {
+      this.setState(({ productsInCart }) => ({
+        productsInCart: [...productsInCart, this.state.productPrewiew],
+      }));
+    } else return;
+  };
+  // ---------------------------product counter increase
+  productCounterIncrease = (id) => {
     this.setState(({ productsInCart }) => ({
-      productsInCart: [...productsInCart, this.state.productPrewiew],
+      productsInCart: productsInCart.map((elem) => {
+        // console.log(elem);
+        if (elem.id === id) {
+          return {
+            ...elem,
+            counter: ++elem.counter,
+          };
+        } else return elem;
+      }),
     }));
   };
-  // addProductToCart = (id) => {
-  //   const res = this.state.productsData.find((elem) => elem.id === id);
-  //   this.setState(({ productsInCart }) => ({
-  //     productsInCart: [...productsInCart, res],
-  //   }));
-  // };
-  // -----------------------add finding element to localstorage
+  // ---------------------------product counter increase
+  productCounterDecrease = (id) => {
+    this.setState(({ productsInCart }) => ({
+      productsInCart: productsInCart.map((elem) => {
+        if (elem.id === id) {
+          return {
+            ...elem,
+            counter: elem.counter <= 1 ? (elem.counter = 1) : --elem.counter,
+          };
+        } else return elem;
+      }),
+    }));
+    console.log(this.state.productsInCart);
+  };
+
+  // ------------------------delete product element
+  deleteElement = (id) => {
+    this.setState(({ productsInCart }) => ({
+      productsInCart: productsInCart.filter((elem) => elem.id !== id),
+    }));
+    this.setState(({ productsData }) => ({
+      productsData: productsData.map((elem) => {
+        if (elem.id === id) {
+          return { ...elem, counter: 1 };
+        } else return elem;
+      }),
+    }));
+  };
+
+  // -------------------------confirm shopping card order
+  confirmOrder = (data, orderList) => {
+    // console.log({ ...data, order: orderList });
+    const order = { ...data, order: orderList };
+    getFormData(this.userRegistrationUrl, order);
+  };
+  // ------------------------state updating from local storage when page is loaded
   componentDidMount() {
     if (localStorage.productsInCart) {
       const getLocal = JSON.parse(localStorage.getItem("productsInCart"));
       this.setState({ productsInCart: getLocal });
     }
   }
-  // ------------------------state updating from local storage when page is loaded
+  // -----------------------add finding element to localstorage
   componentDidUpdate() {
     localStorage.setItem(
       "productsInCart",
@@ -100,9 +147,12 @@ class App extends React.Component {
   }
 
   render() {
+    const total = this.state.productsInCart.reduce((acc, curr) => {
+      return acc + curr.counter * curr.cost;
+    }, 0);
+
     const { productsData, shoppingCartState, productPrewiew, productsInCart } =
       this.state;
-
     return (
       <div className="App">
         <Header
@@ -134,16 +184,22 @@ class App extends React.Component {
               <PrewiewProductCard
                 productPrewiew={productPrewiew}
                 addProductToCart={this.addProductToCart}
+                toggleShoppingCart={this.toggleShoppingCart}
               />
             }
           />
         </Routes>
         <Footer listItemsData={this.listItemsData} />
-        {/* ------------cart---- */}
+
         <ShoppingCart
           shoppingCartState={shoppingCartState}
           toggleShoppingCart={this.toggleShoppingCart}
           productsInCart={productsInCart}
+          deleteElement={this.deleteElement}
+          productCounterIncrease={this.productCounterIncrease}
+          productCounterDecrease={this.productCounterDecrease}
+          total={total}
+          confirmOrder={this.confirmOrder}
         />
         {/* <PrewiewProductCard
           productPrewiew={productPrewiew}

@@ -9,7 +9,7 @@ const ProductsData = [
     description:
       "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odio harum eligendi ex recusandae iusto sequi veniam magni eius ipsam, maxime, cupiditate modi eaque in, impedit similique. Molestias eius sint eos.",
     id: 1,
-    counter: 0,
+    counter: 1,
   },
   {
     name: "Presto Coffee Beans",
@@ -21,7 +21,7 @@ const ProductsData = [
     description:
       "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odio harum eligendi ex recusandae iusto sequi veniam magni eius ipsam, maxime, cupiditate modi eaque in, impedit similique. Molestias eius sint eos.",
     id: 2,
-    counter: 0,
+    counter: 1,
   },
   {
     name: "AROMISTICO Coffee",
@@ -33,7 +33,7 @@ const ProductsData = [
     description:
       "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odio harum eligendi ex recusandae iusto sequi veniam magni eius ipsam, maxime, cupiditate modi eaque in, impedit similique. Molestias eius sint eos.",
     id: 3,
-    counter: 0,
+    counter: 1,
   },
   {
     name: "Movenpick Caffe Crema",
@@ -45,7 +45,7 @@ const ProductsData = [
     description:
       "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odio harum eligendi ex recusandae iusto sequi veniam magni eius ipsam, maxime, cupiditate modi eaque in, impedit similique. Molestias eius sint eos.",
     id: 4,
-    counter: 0,
+    counter: 1,
   },
   {
     name: "Lavazza Qualita Oro",
@@ -57,7 +57,7 @@ const ProductsData = [
     description:
       "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odio harum eligendi ex recusandae iusto sequi veniam magni eius ipsam, maxime, cupiditate modi eaque in, impedit similique. Molestias eius sint eos.",
     id: 5,
-    counter: 0,
+    counter: 1,
   },
   {
     name: "Dallmayr Prodomo",
@@ -69,7 +69,7 @@ const ProductsData = [
     description:
       "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odio harum eligendi ex recusandae iusto sequi veniam magni eius ipsam, maxime, cupiditate modi eaque in, impedit similique. Molestias eius sint eos.",
     id: 6,
-    counter: 0,
+    counter: 1,
   },
   {
     name: "Fineberry Honduras",
@@ -81,7 +81,7 @@ const ProductsData = [
     description:
       "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odio harum eligendi ex recusandae iusto sequi veniam magni eius ipsam, maxime, cupiditate modi eaque in, impedit similique. Molestias eius sint eos.",
     id: 7,
-    counter: 0,
+    counter: 1,
   },
   {
     name: "Melitta BellaCrema Selection des Jahres",
@@ -93,7 +93,7 @@ const ProductsData = [
     description:
       "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odio harum eligendi ex recusandae iusto sequi veniam magni eius ipsam, maxime, cupiditate modi eaque in, impedit similique. Molestias eius sint eos.",
     id: 8,
-    counter: 0,
+    counter: 1,
   },
   {
     name: "Lucaffe Mr.Exclusive",
@@ -105,7 +105,7 @@ const ProductsData = [
     description:
       "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odio harum eligendi ex recusandae iusto sequi veniam magni eius ipsam, maxime, cupiditate modi eaque in, impedit similique. Molestias eius sint eos.",
     id: 9,
-    counter: 0,
+    counter: 1,
   },
   {
     name: "Fineberry Original Blend",
@@ -117,7 +117,7 @@ const ProductsData = [
     description:
       "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odio harum eligendi ex recusandae iusto sequi veniam magni eius ipsam, maxime, cupiditate modi eaque in, impedit similique. Molestias eius sint eos.",
     id: 10,
-    counter: 0,
+    counter: 1,
   },
   {
     name: "Merrild Crema",
@@ -129,7 +129,7 @@ const ProductsData = [
     description:
       "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odio harum eligendi ex recusandae iusto sequi veniam magni eius ipsam, maxime, cupiditate modi eaque in, impedit similique. Molestias eius sint eos.",
     id: 11,
-    counter: 0,
+    counter: 1,
   },
   {
     name: "KIMBO Top Extreme",
@@ -141,7 +141,7 @@ const ProductsData = [
     description:
       "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odio harum eligendi ex recusandae iusto sequi veniam magni eius ipsam, maxime, cupiditate modi eaque in, impedit similique. Molestias eius sint eos.",
     id: 12,
-    counter: 0,
+    counter: 1,
   },
   {
     name: "Julius Meinl Jubilee",
@@ -153,7 +153,7 @@ const ProductsData = [
     description:
       "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odio harum eligendi ex recusandae iusto sequi veniam magni eius ipsam, maxime, cupiditate modi eaque in, impedit similique. Molestias eius sint eos.",
     id: 13,
-    counter: 0,
+    counter: 1,
   },
 
   {
@@ -166,7 +166,7 @@ const ProductsData = [
     description:
       "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odio harum eligendi ex recusandae iusto sequi veniam magni eius ipsam, maxime, cupiditate modi eaque in, impedit similique. Molestias eius sint eos.",
     id: 14,
-    counter: 0,
+    counter: 1,
   },
   {
     name: "Magnum Exotics JAMAICA BLUE MOUNTAIN BLEND",
@@ -178,7 +178,7 @@ const ProductsData = [
     description:
       "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odio harum eligendi ex recusandae iusto sequi veniam magni eius ipsam, maxime, cupiditate modi eaque in, impedit similique. Molestias eius sint eos.",
     id: 15,
-    counter: 0,
+    counter: 1,
   },
   {
     name: "GetUp Strong Blend",
@@ -190,7 +190,7 @@ const ProductsData = [
     description:
       "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odio harum eligendi ex recusandae iusto sequi veniam magni eius ipsam, maxime, cupiditate modi eaque in, impedit similique. Molestias eius sint eos.",
     id: 16,
-    counter: 0,
+    counter: 1,
   },
   {
     name: "ILLY Monoarabica",
@@ -202,7 +202,7 @@ const ProductsData = [
     description:
       "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odio harum eligendi ex recusandae iusto sequi veniam magni eius ipsam, maxime, cupiditate modi eaque in, impedit similique. Molestias eius sint eos.",
     id: 17,
-    counter: 0,
+    counter: 1,
   },
   {
     name: "Кurukahveci Mehmet Efendi Filtre",
@@ -214,7 +214,7 @@ const ProductsData = [
     description:
       "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odio harum eligendi ex recusandae iusto sequi veniam magni eius ipsam, maxime, cupiditate modi eaque in, impedit similique. Molestias eius sint eos.",
     id: 18,
-    counter: 0,
+    counter: 1,
   },
   {
     name: "Stefano",
@@ -226,7 +226,7 @@ const ProductsData = [
     description:
       "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odio harum eligendi ex recusandae iusto sequi veniam magni eius ipsam, maxime, cupiditate modi eaque in, impedit similique. Molestias eius sint eos.",
     id: 19,
-    counter: 0,
+    counter: 1,
   },
 ];
 

@@ -1,9 +1,15 @@
+import ShoppingCardForm from "../shopping-card-form/ShoppingCardForm";
 import "./ShoppingCart.scss";
 
 export default function ShoppingCart({
   shoppingCartState,
   toggleShoppingCart,
   productsInCart,
+  deleteElement,
+  productCounterIncrease,
+  productCounterDecrease,
+  total,
+  confirmOrder,
 }) {
   let activeClass = "shopping-cart";
   if (shoppingCartState) {
@@ -11,9 +17,9 @@ export default function ShoppingCart({
   }
 
   const listElement = productsInCart.map((elem) => {
-    console.log(elem);
-    const { image, name, weight, cost, best, id } = elem;
+    const { image, name, weight, cost, best, id, counter } = elem;
     const bestMark = best ? "Best product*" : "";
+
     return (
       <li className="shopping-cart__item" key={id}>
         <div className="shopping-cart__prewiew">
@@ -26,36 +32,87 @@ export default function ShoppingCart({
           </div>
         </div>
         <div className="shopping-cart__best">{bestMark}</div>
-        <div className="shopping-cart__counter">deg/eng</div>
-        <div className="shopping-cart__prise">{cost}</div>
-        <div className="shopping-cart__delete">DEL</div>
+        <div className="shopping-cart__quantity">{counter}</div>
+        <div className="">
+          <div
+            className="shopping-cart__counter"
+            onClick={() => productCounterDecrease(id)}
+          >
+            -
+          </div>
+          <div
+            className="shopping-cart__counter"
+            onClick={() => productCounterIncrease(id)}
+          >
+            +
+          </div>
+        </div>
+        <div className="shopping-cart__prise">
+          {(cost * counter).toFixed(2)}
+        </div>
+        <div
+          className="shopping-cart__delete"
+          onClick={() => deleteElement(id)}
+        >
+          DEL
+        </div>
       </li>
     );
   });
-  return (
-    <div className={activeClass}>
-      <div className="shopping-cart__body">
-        <div className="shopping-cart__header">
-          <h3>You have added to cart</h3>
-          <div className="shopping-cart__close" onClick={toggleShoppingCart}>
-            <img src="./icons/header/white-close.png" alt="close" />
-          </div>
+
+  const empty = (
+    <div
+      className="shopping-cart__body"
+      style={{
+        maxWidth: "500px",
+        padding: "60px",
+        color: "red",
+        textAlign: "center",
+      }}
+    >
+      <div className="shopping-cart__header" style={{ marginBottom: "30px" }}>
+        <h3>You haven`t added anything!</h3>
+        <div className="shopping-cart__close" onClick={toggleShoppingCart}>
+          <img src="./icons/header/white-close.png" alt="close" />
         </div>
-        <ul className="shopping-cart__list">{listElement}</ul>
-        <div className="shopping-cart__footer">
-          <button className="shopping-cart__confirm">Confirm</button>
-          <label>
-            Total price:
-            <input
-              type="text"
-              name=""
-              id=""
-              className="shopping-cart__total-prise"
-              defaultValue={"99.99"}
-            />
-          </label>
+      </div>
+      <div
+        className="shopping-cart__icon-wrapper"
+        style={{ width: "50px", height: "50px" }}
+      >
+        <img
+          src="./icons/icons8-buying.gif"
+          alt="cart"
+          style={{ width: "100%", height: "100%" }}
+        />
+      </div>
+    </div>
+  );
+
+  const full = (
+    <div className="shopping-cart__body">
+      <div className="shopping-cart__header">
+        <h3>You have added to cart:</h3>
+        <div className="shopping-cart__close" onClick={toggleShoppingCart}>
+          <img src="./icons/header/white-close.png" alt="close" />
+        </div>
+      </div>
+      <ul className="shopping-cart__list">{listElement}</ul>
+      <div className="shopping-cart__footer">
+        <ShoppingCardForm
+          confirmOrder={confirmOrder}
+          productsInCart={productsInCart}
+        />
+
+        <div className="shopping-cart__total-wrapper">
+          <span> Total price:</span>
+          <div className="shopping-cart__total-prise">{total.toFixed(2)}</div>
         </div>
       </div>
     </div>
+  );
+
+  return (
+    <div className={activeClass}>{!!productsInCart.length ? full : empty}</div>
   );
 }

@@ -3,9 +3,11 @@ import "./prewiewProductCard.scss";
 export default function PrewiewProductCard({
   productPrewiew,
   addProductToCart,
+  toggleShoppingCart,
 }) {
-  const { image, name, country, weight, cost, best, description } =
+  const { id, image, name, country, weight, cost, best, description, counter } =
     productPrewiew;
+  // console.log(counter);
   return (
     <section className="prewiewProductCard">
       <div className="prewiewProductCard__photo">
@@ -23,11 +25,14 @@ export default function PrewiewProductCard({
         <div className="prewiewProductCard__purchase">
           <button
             className="prewiewProductCard__addCardBtn"
-            onClick={addProductToCart}
+            onClick={() => {
+              addProductToCart(id);
+              toggleShoppingCart();
+            }}
           >
             Add
           </button>
-          <button className="prewiewProductCard__counter">+-</button>
+          {/* <button className="prewiewProductCard__counter">{counter}</button> */}
         </div>
       </div>
     </section>

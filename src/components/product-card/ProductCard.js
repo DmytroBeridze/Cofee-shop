@@ -9,8 +9,8 @@ export default function ProductCard({
   const { image, name, country, weight, cost, id } = elem;
   return (
     <NavLink
-      to={"productPrewiew"}
       className="product-card"
+      to={"productPrewiew"}
       onClick={() => {
         findIdProductForPrewiew(id);
         // addProductToCart(id);

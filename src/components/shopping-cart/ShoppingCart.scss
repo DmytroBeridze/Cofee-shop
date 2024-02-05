@@ -86,15 +86,21 @@
     display: flex;
     justify-content: space-between;
   }
+  &__confirm {
+    padding: 10px 45px;
+    font-size: 18px;
+    cursor: pointer;
+  }
+  &__total-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
   &__total-prise {
     margin-left: 10px;
     width: 300px;
     padding: 10px;
     font-size: 20px;
-  }
-  &__confirm {
-    padding: 10px 45px;
-    font-size: 18px;
-    cursor: pointer;
+    border: 2px solid rgb(242, 236, 236);
   }
 }
