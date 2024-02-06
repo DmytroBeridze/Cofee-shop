@@ -1,8 +1,8 @@
 import "./App.scss";
 
 import { Route, Routes } from "react-router-dom";
-import Header from "../header/Header";
 import React, { useEffect } from "react";
+import Header from "../header/Header";
 
 import CoffeeHouse from "../pages/coffeeHouse/CoffeeHouse";
 import OurCoffe from "../pages/our-coffee/OurCofee";
@@ -20,12 +20,10 @@ class App extends React.Component {
     this.state = {
       productsData: ProductsData,
       productsInCart: [],
-      productPrewiew: "",
+      productPrewiew: JSON.parse(localStorage.getItem("lastProduct")) || "",
       shoppingCartState: false,
       formMessage: "",
       quantityProduct: 0,
-
-      // productPrewiewState: false,
     };
 
     this.listItemsData = [
@@ -61,27 +59,41 @@ class App extends React.Component {
         }, 3000);
       });
   };
+
   // --------------------------toggle shopping cart
   toggleShoppingCart = () => {
     this.setState(({ shoppingCartState }) => ({
       shoppingCartState: !shoppingCartState,
     }));
   };
+
   // --------------------------findIdProductForPrewiew and toggle product prewiew
   findIdProductForPrewiew = (id) => {
     const prewiew = this.state.productsData.find((elem) => elem.id === id);
-    this.setState({ productPrewiew: prewiew });
+    this.setState({
+      productPrewiew: prewiew,
+    });
+    localStorage.setItem("lastProduct", JSON.stringify(prewiew));
   };
 
   //--------------------------find element from shopping cart and change  this.state.productsInCart
-  // !!--------------------------------------
   addProductToCart = (id) => {
-    if (!this.state.productsInCart.includes(this.state.productPrewiew)) {
+    if (this.state.productsInCart.length > 0) {
+      let allElements = this.state.productsInCart.map((elem) => elem.id);
+      if (allElements.includes(id)) {
+        return;
+      } else {
+        this.setState(({ productsInCart }) => ({
+          productsInCart: [...productsInCart, this.state.productPrewiew],
+        }));
+      }
+    } else {
       this.setState(({ productsInCart }) => ({
         productsInCart: [...productsInCart, this.state.productPrewiew],
       }));
-    } else return;
+    }
   };
+
   // ---------------------------product counter increase
   productCounterIncrease = (id) => {
     this.setState(({ productsInCart }) => ({
@@ -96,7 +108,8 @@ class App extends React.Component {
       }),
     }));
   };
-  // ---------------------------product counter increase
+
+  // ---------------------------product counter decrease
   productCounterDecrease = (id) => {
     this.setState(({ productsInCart }) => ({
       productsInCart: productsInCart.map((elem) => {
@@ -125,13 +138,27 @@ class App extends React.Component {
     }));
   };
 
-  // -------------------------confirm shopping card order
+  // ----------------------confirm  shopping card order and axios POST
   confirmOrder = (data, orderList) => {
-    // console.log({ ...data, order: orderList });
+    this.setState({
+      formMessage: <img src="./icons/loader.svg" alt="load" />,
+    });
     const order = { ...data, order: orderList };
-    getFormData(this.userRegistrationUrl, order);
+    getFormData(this.userRegistrationUrl, order)
+      .then(() => {
+        this.setState({ formMessage: "We will contact you soon" });
+      })
+      .catch(() => {
+        this.setState({ formMessage: "Something went wrong!" });
+      })
+      .finally(() => {
+        setTimeout(() => {
+          this.setState({ formMessage: "" });
+        }, 3000);
+      });
   };
-  // ------------------------state updating from local storage when page is loaded
+
+  // ---------------------state updating from local storage when page is loaded
   componentDidMount() {
     if (localStorage.productsInCart) {
       const getLocal = JSON.parse(localStorage.getItem("productsInCart"));
@@ -200,6 +227,7 @@ class App extends React.Component {
           productCounterDecrease={this.productCounterDecrease}
           total={total}
           confirmOrder={this.confirmOrder}
+          formMessage={this.state.formMessage}
         />
         {/* <PrewiewProductCard
           productPrewiew={productPrewiew}

@@ -13,6 +13,7 @@ export default function ProductCard({
       to={"productPrewiew"}
       onClick={() => {
         findIdProductForPrewiew(id);
+
         // addProductToCart(id);
       }}
     >

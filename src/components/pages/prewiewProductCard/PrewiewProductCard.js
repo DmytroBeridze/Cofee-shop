@@ -7,7 +7,7 @@ export default function PrewiewProductCard({
 }) {
   const { id, image, name, country, weight, cost, best, description, counter } =
     productPrewiew;
-  // console.log(counter);
+
   return (
     <section className="prewiewProductCard">
       <div className="prewiewProductCard__photo">

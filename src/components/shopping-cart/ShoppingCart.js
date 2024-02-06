@@ -10,6 +10,7 @@ export default function ShoppingCart({
   productCounterDecrease,
   total,
   confirmOrder,
+  formMessage,
 }) {
   let activeClass = "shopping-cart";
   if (shoppingCartState) {
@@ -66,25 +67,30 @@ export default function ShoppingCart({
       style={{
         maxWidth: "500px",
         padding: "60px",
-        color: "red",
+        color: "rgb(164, 150, 150)",
         textAlign: "center",
+        borderRadius: "5px",
       }}
     >
-      <div className="shopping-cart__header" style={{ marginBottom: "30px" }}>
+      <div
+        className="shopping-cart__header"
+        style={{ marginBottom: "0px", alignItems: "center" }}
+      >
         <h3>You haven`t added anything!</h3>
+        <div
+          className="shopping-cart__icon-wrapper"
+          style={{ width: "50px", height: "50px" }}
+        >
+          <img
+            src="./icons/icons8-shopping-cart.gif"
+            // src="./icons/icons8-buying.gif"
+            alt="cart"
+            style={{ width: "100%", height: "100%" }}
+          />
+        </div>
         <div className="shopping-cart__close" onClick={toggleShoppingCart}>
           <img src="./icons/header/white-close.png" alt="close" />
         </div>
-      </div>
-      <div
-        className="shopping-cart__icon-wrapper"
-        style={{ width: "50px", height: "50px" }}
-      >
-        <img
-          src="./icons/icons8-buying.gif"
-          alt="cart"
-          style={{ width: "100%", height: "100%" }}
-        />
       </div>
     </div>
   );
@@ -102,6 +108,7 @@ export default function ShoppingCart({
         <ShoppingCardForm
           confirmOrder={confirmOrder}
           productsInCart={productsInCart}
+          formMessage={formMessage}
         />
 
         <div className="shopping-cart__total-wrapper">
