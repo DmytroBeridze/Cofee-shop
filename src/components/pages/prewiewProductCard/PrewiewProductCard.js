@@ -32,7 +32,6 @@ export default function PrewiewProductCard({
           >
             Add
           </button>
-          {/* <button className="prewiewProductCard__counter">{counter}</button> */}
         </div>
       </div>
     </section>

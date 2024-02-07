@@ -67,7 +67,7 @@ class App extends React.Component {
     }));
   };
 
-  // --------------------------findIdProductForPrewiew and toggle product prewiew
+  // ---------------------findIdProductForPrewiew and toggle product prewiew
   findIdProductForPrewiew = (id) => {
     const prewiew = this.state.productsData.find((elem) => elem.id === id);
     this.setState({
@@ -198,7 +198,14 @@ class App extends React.Component {
               />
             }
           />
-          <Route path="ourCoffe" element={<OurCoffe />} />
+          <Route
+            path="ourCoffe"
+            element={
+              <OurCoffe
+                findIdProductForPrewiew={this.findIdProductForPrewiew}
+              />
+            }
+          />
           <Route path="pleasure" element={<Pleasure />} />
           <Route
             path="more"
@@ -225,6 +232,10 @@ class App extends React.Component {
             path="more/productPrewiew"
             element={<Navigate to="/productPrewiew" replace />}
           />
+          <Route
+            path="ourCoffe/productPrewiew"
+            element={<Navigate to="/productPrewiew" replace />}
+          />
         </Routes>
 
         <Footer listItemsData={this.listItemsData} />
@@ -240,10 +251,6 @@ class App extends React.Component {
           confirmOrder={this.confirmOrder}
           formMessage={this.state.formMessage}
         />
-        {/* <PrewiewProductCard
-          productPrewiew={productPrewiew}
-          productPrewiewState={productPrewiewState}
-        /> */}
       </div>
     );
   }
