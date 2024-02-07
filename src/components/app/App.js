@@ -202,8 +202,15 @@ class App extends React.Component {
           <Route path="ourCoffe" element={<OurCoffe />} />
           <Route path="pleasure" element={<Pleasure />} />
           <Route
-            path="more"
-            // element={<More addProductToCart={this.addProductToCart} />}
+            path="more/*"
+            element={
+              <More
+                addProductToCart={this.addProductToCart}
+                toggleShoppingCart={this.toggleShoppingCart}
+                productPrewiew={productPrewiew}
+                findIdProductForPrewiew={this.findIdProductForPrewiew}
+              />
+            }
           />
           <Route
             path="productPrewiew"
@@ -216,6 +223,7 @@ class App extends React.Component {
             }
           />
         </Routes>
+
         <Footer listItemsData={this.listItemsData} />
 
         <ShoppingCart

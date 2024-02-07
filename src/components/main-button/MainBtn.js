@@ -6,8 +6,5 @@ export default function MainButton() {
     <Link className="main__btn" to={"more"}>
       More
     </Link>
-    // <button className="main__btn" onClick={() => console.log("Test")}>
-    //   More
-    // </button>
   );
 }
