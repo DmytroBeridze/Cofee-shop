@@ -1,18 +1,18 @@
 import "./App.scss";
 
-import { Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
 import React, { useEffect } from "react";
-import Header from "../header/Header";
 
+import Header from "../header/Header";
 import CoffeeHouse from "../pages/coffeeHouse/CoffeeHouse";
 import OurCoffe from "../pages/our-coffee/OurCofee";
 import Pleasure from "../pages/pleasure/pleasure";
 import More from "../pages/more/More";
 import { ProductsData } from "../products-data/ProductsData";
-import Footer from "../footer/Footer";
 import getFormData from "../../components/sendForm/SendForm";
 import PrewiewProductCard from "../pages/prewiewProductCard/PrewiewProductCard";
 import ShoppingCart from "../shopping-cart/ShoppingCart.js";
+import Footer from "../footer/Footer";
 
 class App extends React.Component {
   constructor(props) {
@@ -195,14 +195,13 @@ class App extends React.Component {
                 getFormData={this.testSend}
                 formMessage={this.state.formMessage}
                 findIdProductForPrewiew={this.findIdProductForPrewiew}
-                // addProductToCart={this.addProductToCart}
               />
             }
           />
           <Route path="ourCoffe" element={<OurCoffe />} />
           <Route path="pleasure" element={<Pleasure />} />
           <Route
-            path="more/*"
+            path="more"
             element={
               <More
                 addProductToCart={this.addProductToCart}
@@ -221,6 +220,10 @@ class App extends React.Component {
                 toggleShoppingCart={this.toggleShoppingCart}
               />
             }
+          />
+          <Route
+            path="more/productPrewiew"
+            element={<Navigate to="/productPrewiew" replace />}
           />
         </Routes>
 

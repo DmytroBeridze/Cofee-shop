@@ -1,10 +1,7 @@
-import { NavLink } from "react-router-dom";
 import "./productCard.scss";
-export default function ProductCard({
-  elem,
-  findIdProductForPrewiew,
-  addProductToCart,
-}) {
+import { NavLink } from "react-router-dom";
+
+export default function ProductCard({ elem, findIdProductForPrewiew }) {
   const { image, name, country, weight, cost, id } = elem;
   return (
     <NavLink
