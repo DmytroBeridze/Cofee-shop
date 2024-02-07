@@ -1,5 +1,4 @@
 import "./prewiewProductCard.scss";
-
 export default function PrewiewProductCard({
   productPrewiew,
   addProductToCart,
@@ -7,11 +6,13 @@ export default function PrewiewProductCard({
 }) {
   const { id, image, name, country, weight, cost, best, description, counter } =
     productPrewiew;
-
   return (
     <section className="prewiewProductCard">
       <div className="prewiewProductCard__photo">
-        <img src={`./img/product-images/${image}`} alt="product" />
+        <img
+          src={window.location.origin + `/img/product-images/${image}`}
+          alt="product"
+        />
       </div>
       <div className="prewiewProductCard__description">
         <h3 className="prewiewProductCard__name">{name}</h3>

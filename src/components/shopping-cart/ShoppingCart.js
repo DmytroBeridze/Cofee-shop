@@ -25,7 +25,10 @@ export default function ShoppingCart({
       <li className="shopping-cart__item" key={id}>
         <div className="shopping-cart__prewiew">
           <div className="shopping-cart__img">
-            <img src={`./img/product-images/${image}`} alt={name} />
+            <img
+              src={window.location.origin + `/img/product-images/${image}`}
+              alt={name}
+            />
           </div>
           <div className="shopping-cart__description">
             <div className="shopping-cart__description_name">{name}</div>
@@ -82,14 +85,16 @@ export default function ShoppingCart({
           style={{ width: "50px", height: "50px" }}
         >
           <img
-            src="./icons/icons8-shopping-cart.gif"
-            // src="./icons/icons8-buying.gif"
+            src={window.location.origin + "/icons/icons8-shopping-cart.gif"}
             alt="cart"
             style={{ width: "100%", height: "100%" }}
           />
         </div>
         <div className="shopping-cart__close" onClick={toggleShoppingCart}>
-          <img src="./icons/header/white-close.png" alt="close" />
+          <img
+            src={window.location.origin + "/icons/header/white-close.png"}
+            alt="close"
+          />
         </div>
       </div>
     </div>
@@ -100,7 +105,11 @@ export default function ShoppingCart({
       <div className="shopping-cart__header">
         <h3>You have added to cart:</h3>
         <div className="shopping-cart__close" onClick={toggleShoppingCart}>
-          <img src="./icons/header/white-close.png" alt="close" />
+          <img
+            src={window.location.origin + `/icons/header/white-close.png`}
+            alt="close"
+          />
+          {/* <img src="./icons/header/white-close.png" alt="close" /> */}
         </div>
       </div>
       <ul className="shopping-cart__list">{listElement}</ul>

@@ -11,7 +11,6 @@ export default function More({
   findIdProductForPrewiew,
 }) {
   const productCard = ProductsData.filter((item) => item.best).map((elem) => {
-    console.log(elem);
     return (
       <ProductCard
         elem={elem}
@@ -24,7 +23,7 @@ export default function More({
 
   return (
     <>
-      <Routes>
+      {/* <Routes>
         <Route
           path="productPrewiew"
           element={
@@ -35,20 +34,14 @@ export default function More({
             />
           }
         />
-      </Routes>
+      </Routes> */}
+
       <div className="more" style={{ backgroundColor: "gray" }}></div>
       <div
         className="testCont"
         style={{ border: "1px solid red", width: "800px", margin: "0 auto" }}
       >
         <CoffeeCarousel productCard={productCard} />
-      </div>
-      {/* {qwerty} */}
-      <div
-        className=""
-        style={{ width: "100px", height: "100px", border: "1px solid red" }}
-      >
-        <img src="71qBQnpQFYL.png" alt="" style={{ width: "100%" }} />
       </div>
     </>
   );
