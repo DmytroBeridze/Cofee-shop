@@ -1,6 +1,6 @@
 import "./filter.scss";
 
-export default function Filter({ selectCountry }) {
+export default function Filter({ selectCountry, costValue }) {
   return (
     <div className="filter">
       <div className="filter__looking-for">
@@ -28,10 +28,27 @@ export default function Filter({ selectCountry }) {
       <div className="filter__or-filter">
         <label>
           Or filter
-          <input type="button" value="expensive" />
-          <input type="button" value="cheaper" />
-          <input type="button" value="all" />
+          <input
+            type="button"
+            value="expensive"
+            onClick={(e) => costValue(e.target.value)}
+          />
         </label>
+        <input
+          type="button"
+          value="cheaper"
+          onClick={(e) => costValue(e.target.value)}
+        />
+        <input
+          type="button"
+          value="random"
+          onClick={(e) => costValue(e.target.value)}
+        />
+        <input
+          type="button"
+          value="all"
+          onClick={(e) => costValue(e.target.value)}
+        />
       </div>
     </div>
   );

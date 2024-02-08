@@ -20,6 +20,7 @@ class App extends React.Component {
     this.state = {
       productsData: ProductsData,
       ourCofeeDataFilter: "",
+      ourCofeeSortCost: "",
       productsInCart: [],
       productPrewiew: JSON.parse(localStorage.getItem("lastProduct")) || "",
       shoppingCartState: false,
@@ -177,13 +178,16 @@ class App extends React.Component {
   selectCountry = (value) => {
     this.setState({ ourCofeeDataFilter: value });
   };
+
   findCountry = (arr, state) => {
     if (!state) {
       return arr;
     }
     return arr.filter((elem) => elem.country === state);
   };
-  // let res= this.state.productsData.filter((elem) => elem.country === value);
+  costValue = (value) => {
+    this.setState({ ourCofeeSortCost: value });
+  };
 
   render() {
     const total = this.state.productsInCart.reduce((acc, curr) => {
@@ -194,8 +198,13 @@ class App extends React.Component {
       this.state.ourCofeeDataFilter
     );
 
-    const { productsData, shoppingCartState, productPrewiew, productsInCart } =
-      this.state;
+    const {
+      productsData,
+      shoppingCartState,
+      productPrewiew,
+      productsInCart,
+      ourCofeeSortCost,
+    } = this.state;
 
     return (
       <div className="App">
@@ -220,9 +229,10 @@ class App extends React.Component {
             element={
               <OurCoffe
                 findIdProductForPrewiew={this.findIdProductForPrewiew}
-                // productsData={productsData}
                 selectCountry={this.selectCountry}
                 produstsToCountry={produstsToCountry}
+                costValue={this.costValue}
+                ourCofeeSortCost={ourCofeeSortCost}
               />
             }
           />
