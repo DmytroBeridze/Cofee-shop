@@ -17,6 +17,9 @@ export default class Header extends React.Component {
   };
 
   render() {
+    document.body.style = this.state.burgerState
+      ? "overflow:hidden"
+      : "overflow:auto";
     return (
       <header className={styles.header}>
         <div className="container">

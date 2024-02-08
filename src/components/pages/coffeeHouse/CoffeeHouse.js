@@ -1,5 +1,4 @@
 import CoffeBeansIcon from "../../coffe-beans-icon/coffeBeansIcon";
-// import MainButton from "../../main-button/MainBtn";
 import "./coffeeHouse.scss";
 import Main from "./components/main/Main";
 import AboutUs from "./components/about-us/AboutUs";
@@ -11,7 +10,6 @@ export default function CoffeeHouse({
   getFormData,
   formMessage,
   findIdProductForPrewiew,
-  // addProductToCart,
 }) {
   return (
     <>
@@ -20,7 +18,6 @@ export default function CoffeeHouse({
       <OurBest
         productsData={productsData}
         findIdProductForPrewiew={findIdProductForPrewiew}
-        // addProductToCart={addProductToCart}
       />
       <MainForm getFormData={getFormData} formMessage={formMessage} />
     </>

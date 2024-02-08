@@ -15,7 +15,8 @@ export default function ShoppingCart({
   let activeClass = "shopping-cart";
   if (shoppingCartState) {
     activeClass += " active";
-  }
+    document.body.style = "overflow:hidden";
+  } else document.body.style = "overflow:auto";
 
   const listElement = productsInCart.map((elem) => {
     const { image, name, weight, cost, best, id, counter } = elem;
