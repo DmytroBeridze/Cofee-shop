@@ -5,6 +5,14 @@
   gap: 78px;
   margin-bottom: 120px;
   position: relative;
+  @media (max-width: 900px) {
+    flex-direction: column-reverse;
+    align-items: center;
+  }
+  @media (max-width: 650px) {
+    margin-bottom: 80px;
+    gap: 50px;
+  }
   &__img {
     background-image: url("../../../../../../public/img/our-coffe/girl.jpeg");
     background-position: 26%;

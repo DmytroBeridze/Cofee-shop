@@ -10,6 +10,13 @@
     justify-items: center;
     @media (max-width: 900px) {
       grid-template-columns: repeat(2, 1fr);
+      max-width: 600px;
+    }
+    @media (max-width: 650px) {
+      grid-template-columns: 1fr;
+      max-width: 560px;
+      margin: 30px auto 30px;
+      row-gap: 40px;
     }
   }
   //   &__galery {
