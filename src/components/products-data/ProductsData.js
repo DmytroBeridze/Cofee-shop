@@ -7,7 +7,8 @@ const ProductsData = [
     country: "brazil",
     best: false,
     description:
-      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odio harum eligendi ex recusandae iusto sequi veniam magni eius ipsam, maxime, cupiditate modi eaque in, impedit similique. Molestias eius sint eos.",
+      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odio harum eligendi ex recusandae iusto sequi veniam magni eius ipsam, maxime, cupiditate modi eaque in, impedit similique. Molestias eius sint eos.Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odio harum eligendi ex recusandae iusto sequi veniam magni eius ipsam, maxime, cupiditate modi eaque in, impedit similique. Molestias eius sint eos.Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odio harum eligendi ex recusandae iusto sequi veniam magni eius ipsam, maxime, cupiditate modi eaque in, impedit similique. Molestias eius sint eos.Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odio harum eligendi ex recusandae iusto sequi veniam magni eius ipsam, maxime, cupiditate modi eaque in, impedit similique. Molestias eius sint eos.",
+
     id: 1,
     counter: 1,
   },
