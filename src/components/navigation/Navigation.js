@@ -7,7 +7,8 @@ import NavigationLinks from "../navigation-links/NavigationLinks";
 
 export default class Navigation extends React.Component {
   render() {
-    const { toggleBurger, burgerState, listItemsData } = this.props;
+    const { toggleBurger, burgerState, listItemsData, closeBurger } =
+      this.props;
     let navState = "navigation__list";
     if (burgerState) {
       navState += " navShow";
@@ -66,7 +67,7 @@ export default class Navigation extends React.Component {
             <CoffeBeansIcon iconClass="nav__Logo" />
             <NavigationLinks
               listItemsData={listItemsData}
-              toggleBurger={toggleBurger}
+              closeBurger={closeBurger}
               fontColor="#FFFFFF"
             />
           </ul>

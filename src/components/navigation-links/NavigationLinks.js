@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 export default function NavigationLinks({
   listItemsData,
   fontColor,
-  toggleBurger,
+  closeBurger,
 }) {
   const listItems = listItemsData.map(({ name, path }) => {
     return (
@@ -13,7 +13,7 @@ export default function NavigationLinks({
           className="navigation__list_link"
           style={{ color: `${fontColor}` }}
           to={path}
-          onClick={toggleBurger}
+          onClick={closeBurger}
         >
           {name}
         </NavLink>
