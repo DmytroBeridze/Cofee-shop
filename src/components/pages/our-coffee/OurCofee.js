@@ -1,6 +1,8 @@
 import "./ourCofee.scss";
 import ProductCard from "../../product-card/ProductCard";
 import Filter from "../../filter/Filter";
+import OurCoffeeMain from "./components/our-coffee-main/Our-coffee-main";
+import AboutOureeBeans from "./components/about-our-beans/AboutOurBeans";
 
 export default function OurCoffe({
   findIdProductForPrewiew,
@@ -31,7 +33,9 @@ export default function OurCoffe({
     });
   return (
     <div className="our-coffee">
-      <div style={{ height: "400px", backgroundColor: "black" }}>Our Cofee</div>
+      <OurCoffeeMain />
+      <AboutOureeBeans />
+
       <Filter selectCountry={selectCountry} costValue={costValue} />
       <div className="our-coffee__galery">{ourProductCard}</div>
     </div>

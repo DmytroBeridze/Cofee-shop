@@ -1,7 +1,6 @@
 // import styles from "./navigation.module.scss";
 import "./navigation.scss";
 import React from "react";
-import { NavLink } from "react-router-dom";
 import BurgerButton from "../burger-button/BurgerButton";
 import CoffeBeansIcon from "../coffe-beans-icon/coffeBeansIcon";
 import NavigationLinks from "../navigation-links/NavigationLinks";

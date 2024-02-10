@@ -7,8 +7,8 @@ export default function Filter({ selectCountry, costValue }) {
         <label>
           Lookiing for
           <select
-            name=""
-            id=""
+            name="country-select"
+            className="filter__select"
             defaultValue={"select-country"}
             onChange={(e) => selectCountry(e.target.value)}
           >
