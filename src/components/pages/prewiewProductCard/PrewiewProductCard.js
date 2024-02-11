@@ -1,3 +1,4 @@
+import { NavLink } from "react-router-dom";
 import CoffeBeansIconBlack from "../../coffee-beans-icon-black/CoffeBeansIconBlack";
 import OurCoffeeMain from "../our-coffee/components/our-coffee-main/Our-coffee-main";
 import "./prewiewProductCard.scss";
@@ -36,7 +37,8 @@ export default function PrewiewProductCard({
           </div>
           {/* <div className="prewiewProductCard__purchase"> */}
           <input
-            className="prewiewProductCard__addCardBtn"
+            name="add"
+            className="prewiewProductCard__btn prewiewProductCard__btn_addCart"
             type="button"
             defaultValue="Add"
             onClick={() => {
@@ -44,6 +46,13 @@ export default function PrewiewProductCard({
               toggleShoppingCart();
             }}
           />
+          <NavLink to={"ourCoffe"}>
+            <input
+              className="prewiewProductCard__btn"
+              type="button"
+              defaultValue="Back"
+            />
+          </NavLink>
         </div>
       </section>
     </>

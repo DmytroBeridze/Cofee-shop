@@ -266,6 +266,10 @@ class App extends React.Component {
             path="ourCoffe/productPrewiew"
             element={<Navigate to="/productPrewiew" replace />}
           />
+          <Route
+            path="productPrewiew/ourCoffe"
+            element={<Navigate to="/ourCoffe" replace />}
+          />
         </Routes>
 
         <Footer listItemsData={this.listItemsData} />
