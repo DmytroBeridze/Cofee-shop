@@ -33,20 +33,26 @@ export default function ShoppingCardForm({
     <form onSubmit={handleSubmit(orderSend)} name="confirm">
       <input
         type="submit"
-        className="shopping-cart__confirm"
+        className="shopping-cart__confirm prewiewProductCard__btn"
         value="Confirm"
       ></input>
-      <input
-        style={errors.phone && { border: "1px solid red" }}
-        type="text"
-        name="phone"
-        {...register("phone", {
-          required: true,
-          pattern: { value: /[0-9]/, message: "Only numbers" },
-        })}
-      />
+      <div className="shopping-cart__phone_wrapper">
+        <input
+          id="shopping-cart-phone"
+          className="shopping-cart__phone"
+          style={errors.phone && { border: "1px solid red" }}
+          type="text"
+          name="phone"
+          placeholder="Enter your phone"
+          {...register("phone", {
+            required: true,
+            pattern: { value: /[0-9]/, message: "Only numbers" },
+          })}
+        />
+      </div>
+
       {errors.phone && <span>Error</span>}
-      <div className="">{formMessage}</div>
+      <div className="shopping-cart__formMessage">{formMessage}</div>
     </form>
   );
 }

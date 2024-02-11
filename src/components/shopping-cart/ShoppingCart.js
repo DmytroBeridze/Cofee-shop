@@ -1,3 +1,4 @@
+import { ArrowUp, ArrowDown } from "./arrows.js";
 import ShoppingCardForm from "../shopping-card-form/ShoppingCardForm";
 import "./ShoppingCart.scss";
 
@@ -30,49 +31,42 @@ export default function ShoppingCart({
           </div>
           <div className="shopping-cart__description">
             <div className="shopping-cart__description_name">{name}</div>
-            <div className="shopping-cart__description_weight">{weight}</div>
+            <div className="shopping-cart__description_weight">{weight} kg</div>
           </div>
+          <div className="shopping-cart__best">{bestMark}</div>
         </div>
-        <div className="shopping-cart__best">{bestMark}</div>
-        <div className="shopping-cart__quantity">{counter}</div>
-        <div className="">
-          <div
-            className="shopping-cart__counter"
-            onClick={() => productCounterDecrease(id)}
-          >
-            -
+        <div className="shopping-cart__order-wrapper">
+          <div className="shopping-cart__quantity">{counter}</div>
+          <div className="shopping-cart__counter-wrapper">
+            <div
+              className="shopping-cart__counter"
+              onClick={() => productCounterIncrease(id)}
+            >
+              <ArrowUp />
+            </div>
+            <div
+              className="shopping-cart__counter"
+              onClick={() => productCounterDecrease(id)}
+            >
+              <ArrowDown />
+            </div>
           </div>
-          <div
-            className="shopping-cart__counter"
-            onClick={() => productCounterIncrease(id)}
-          >
-            +
+          <div className="shopping-cart__prise">
+            {(cost * counter).toFixed(2)} $
           </div>
-        </div>
-        <div className="shopping-cart__prise">
-          {(cost * counter).toFixed(2)}
-        </div>
-        <div
-          className="shopping-cart__delete"
-          onClick={() => deleteElement(id)}
-        >
-          DEL
+          <input
+            type="button"
+            value="Delete"
+            onClick={() => deleteElement(id)}
+            className="shopping-cart__delete prewiewProductCard__btn"
+          />
         </div>
       </li>
     );
   });
 
   const empty = (
-    <div
-      className="shopping-cart__body"
-      style={{
-        maxWidth: "500px",
-        padding: "60px",
-        color: "rgb(164, 150, 150)",
-        textAlign: "center",
-        borderRadius: "5px",
-      }}
-    >
+    <div className="shopping-cart__body">
       <div
         className="shopping-cart__header"
         style={{ marginBottom: "0px", alignItems: "center" }}
@@ -114,7 +108,7 @@ export default function ShoppingCart({
 
         <div className="shopping-cart__total-wrapper">
           <span> Total price:</span>
-          <div className="shopping-cart__total-prise">{total.toFixed(2)}</div>
+          <div className="shopping-cart__total-prise">{total.toFixed(2)} $</div>
         </div>
       </div>
     </div>
