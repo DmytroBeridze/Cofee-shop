@@ -71,7 +71,7 @@ export default function ShoppingCart({
       // style={{ maxWidth: "500px", height: "fit-content" }}
     >
       <div
-        className="shopping-cart__header"
+        className="shopping-cart__header shopping-cart__header_empty"
         style={{
           marginBottom: "0px",
           alignItems: "center",
