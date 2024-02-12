@@ -2,8 +2,8 @@ const ArrowUp = () => {
   return (
     <svg
       id="Capa_1"
-      width="20px"
-      height="20px"
+      // width="20px"
+      // height="20px"
       viewBox="0 0 401.998 401.998"
       fill="#000000"
     >
@@ -21,8 +21,8 @@ const ArrowDown = () => {
   return (
     <svg
       id="Capa_2"
-      width="20px"
-      height="20px"
+      // width="20px"
+      // height="20px"
       viewBox="0 0 401.998 401.998"
       fill="#000000"
     >

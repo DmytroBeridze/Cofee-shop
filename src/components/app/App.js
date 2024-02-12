@@ -26,6 +26,8 @@ class App extends React.Component {
       shoppingCartState: false,
       formMessage: "",
       quantityProduct: 0,
+      // ----------
+      viewedProducts: [],
     };
 
     this.listItemsData = [
@@ -76,6 +78,12 @@ class App extends React.Component {
       productPrewiew: prewiew,
     });
     localStorage.setItem("lastProduct", JSON.stringify(prewiew));
+
+    //  --------- viewed products
+    if (this.state.viewedProducts.includes(prewiew)) return;
+    this.setState(({ viewedProducts }) => ({
+      viewedProducts: [...viewedProducts, prewiew],
+    }));
   };
 
   //--------------------------find element from shopping cart and change  this.state.productsInCart
@@ -172,6 +180,7 @@ class App extends React.Component {
       "productsInCart",
       JSON.stringify(this.state.productsInCart)
     );
+    // sessionStorage.setItem("viewed", JSON.stringify(this.state.viewedProducts));
   }
   // ---------------------select country
   selectCountry = (value) => {
@@ -203,8 +212,8 @@ class App extends React.Component {
       productPrewiew,
       productsInCart,
       ourCofeeSortCost,
+      viewedProducts,
     } = this.state;
-
     return (
       <div className="App">
         <Header
@@ -235,7 +244,15 @@ class App extends React.Component {
               />
             }
           />
-          <Route path="pleasure" element={<Pleasure />} />
+          <Route
+            path="pleasure"
+            element={
+              <Pleasure
+                viewedProducts={viewedProducts}
+                findIdProductForPrewiew={this.findIdProductForPrewiew}
+              />
+            }
+          />
           <Route
             path="more"
             element={
@@ -263,6 +280,10 @@ class App extends React.Component {
           />
           <Route
             path="ourCoffe/productPrewiew"
+            element={<Navigate to="/productPrewiew" replace />}
+          />
+          <Route
+            path="pleasure/productPrewiew"
             element={<Navigate to="/productPrewiew" replace />}
           />
           <Route

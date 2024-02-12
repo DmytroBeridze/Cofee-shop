@@ -86,7 +86,8 @@
       height: fit-content;
       @media (max-width: 700px) {
         max-width: 350px;
-        padding: 60px 20px;
+        padding: 40px 20px;
+        // padding: 60px 20px;
       }
     }
   }
@@ -94,10 +95,10 @@
     display: flex;
     justify-content: space-between;
     margin-bottom: 20px;
-    // @media (max-width: 700px) {
-    //   flex-direction: column;
-    //   gap: 30px;
-    // }
+    @media (max-width: 700px) {
+      flex-direction: column;
+      gap: 30px;
+    }
   }
   &__close {
     width: 30px;
@@ -188,6 +189,10 @@
 #Capa_1:hover :active {
   fill: #a29d9d;
 }
+#Capa_1 {
+  position: relative;
+}
+
 #Capa_2:hover :active {
   fill: #a29d9d;
 }
