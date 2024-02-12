@@ -28,7 +28,6 @@ export default function ShoppingCardForm({
       reset();
     } else return;
   };
-
   return (
     <form onSubmit={handleSubmit(orderSend)} name="confirm">
       <input
@@ -50,8 +49,10 @@ export default function ShoppingCardForm({
           })}
         />
       </div>
+      {errors.phone && (
+        <span style={{ color: "red" }}>{errors.phone.message}</span>
+      )}
 
-      {errors.phone && <span>Error</span>}
       <div className="shopping-cart__formMessage">{formMessage}</div>
     </form>
   );

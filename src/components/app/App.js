@@ -123,7 +123,6 @@ class App extends React.Component {
         } else return elem;
       }),
     }));
-    console.log(this.state.productsInCart);
   };
 
   // ------------------------delete product element

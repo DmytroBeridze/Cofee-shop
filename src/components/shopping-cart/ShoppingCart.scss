@@ -71,7 +71,7 @@
   &__body {
     max-width: 1200px;
     max-height: 800px;
-    height: fit-content;
+    // height: fit-content;
     padding: 30px;
     background-color: #fff;
     position: absolute;
@@ -80,12 +80,24 @@
     right: 20px;
     bottom: 20px;
     margin: auto;
-    overflow-y: auto;
+    overflow-y: scroll;
+    &_empty {
+      max-width: 500px;
+      height: fit-content;
+      @media (max-width: 700px) {
+        max-width: 350px;
+        padding: 60px 20px;
+      }
+    }
   }
   &__header {
     display: flex;
     justify-content: space-between;
     margin-bottom: 20px;
+    // @media (max-width: 700px) {
+    //   flex-direction: column;
+    //   gap: 30px;
+    // }
   }
   &__close {
     width: 30px;

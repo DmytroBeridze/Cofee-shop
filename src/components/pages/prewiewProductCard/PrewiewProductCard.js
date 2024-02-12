@@ -46,9 +46,9 @@ export default function PrewiewProductCard({
               toggleShoppingCart();
             }}
           />
-          <NavLink to={"ourCoffe"}>
+          <NavLink to={"ourCoffe"} className="prewiewProductCard__btn_back">
             <input
-              className="prewiewProductCard__btn"
+              className="prewiewProductCard__btn "
               type="button"
               defaultValue="Back"
             />

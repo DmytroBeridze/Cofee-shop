@@ -66,12 +66,18 @@ export default function ShoppingCart({
   });
 
   const empty = (
-    <div className="shopping-cart__body">
+    <div
+      className="shopping-cart__body  shopping-cart__body_empty"
+      // style={{ maxWidth: "500px", height: "fit-content" }}
+    >
       <div
         className="shopping-cart__header"
-        style={{ marginBottom: "0px", alignItems: "center" }}
+        style={{
+          marginBottom: "0px",
+          alignItems: "center",
+        }}
       >
-        <h3>You haven`t added anything!</h3>
+        <h3 style={{ textAlign: "center" }}>You haven`t added anything!</h3>
         <div
           className="shopping-cart__icon-wrapper"
           style={{ width: "50px", height: "50px" }}
