@@ -1,15 +1,10 @@
-import { Route, Routes } from "react-router-dom";
+import "./more.scss";
+
 import CoffeeCarousel from "../../carousel/Carousel";
 import ProductCard from "../../product-card/ProductCard";
 import { ProductsData } from "../../products-data/ProductsData";
-import "./more.scss";
-import PrewiewProductCard from "../prewiewProductCard/PrewiewProductCard";
-export default function More({
-  addProductToCart,
-  productPrewiew,
-  toggleShoppingCart,
-  findIdProductForPrewiew,
-}) {
+
+export default function More({ addProductToCart, findIdProductForPrewiew }) {
   const productCard = ProductsData.filter((item) => item.best).map((elem) => {
     return (
       <ProductCard
@@ -23,6 +18,7 @@ export default function More({
 
   return (
     <>
+<<<<<<< HEAD
       {/* <Routes>
         <Route
           path="productPrewiew"
@@ -36,6 +32,8 @@ export default function More({
         />
       </Routes> */}
 
+=======
+>>>>>>> 07bbb03621956c231ce1016f9232a612248306a3
       <div className="more" style={{ backgroundColor: "gray" }}></div>
       <div
         className="testCont"

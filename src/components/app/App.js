@@ -1,29 +1,33 @@
 import "./App.scss";
 
-import { Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
 import React, { useEffect } from "react";
-import Header from "../header/Header";
 
+import Header from "../header/Header";
 import CoffeeHouse from "../pages/coffeeHouse/CoffeeHouse";
 import OurCoffe from "../pages/our-coffee/OurCofee";
 import Pleasure from "../pages/pleasure/pleasure";
 import More from "../pages/more/More";
 import { ProductsData } from "../products-data/ProductsData";
-import Footer from "../footer/Footer";
 import getFormData from "../../components/sendForm/SendForm";
 import PrewiewProductCard from "../pages/prewiewProductCard/PrewiewProductCard";
 import ShoppingCart from "../shopping-cart/ShoppingCart.js";
+import Footer from "../footer/Footer";
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       productsData: ProductsData,
+      ourCofeeDataFilter: "",
+      ourCofeeSortCost: "",
       productsInCart: [],
       productPrewiew: JSON.parse(localStorage.getItem("lastProduct")) || "",
       shoppingCartState: false,
       formMessage: "",
       quantityProduct: 0,
+      // ----------
+      viewedProducts: [],
     };
 
     this.listItemsData = [
@@ -67,13 +71,19 @@ class App extends React.Component {
     }));
   };
 
-  // --------------------------findIdProductForPrewiew and toggle product prewiew
+  // ---------------------findIdProductForPrewiew and toggle product prewiew
   findIdProductForPrewiew = (id) => {
     const prewiew = this.state.productsData.find((elem) => elem.id === id);
     this.setState({
       productPrewiew: prewiew,
     });
     localStorage.setItem("lastProduct", JSON.stringify(prewiew));
+
+    //  --------- viewed products
+    if (this.state.viewedProducts.includes(prewiew)) return;
+    this.setState(({ viewedProducts }) => ({
+      viewedProducts: [...viewedProducts, prewiew],
+    }));
   };
 
   //--------------------------find element from shopping cart and change  this.state.productsInCart
@@ -121,7 +131,6 @@ class App extends React.Component {
         } else return elem;
       }),
     }));
-    console.log(this.state.productsInCart);
   };
 
   // ------------------------delete product element
@@ -171,15 +180,40 @@ class App extends React.Component {
       "productsInCart",
       JSON.stringify(this.state.productsInCart)
     );
+    // sessionStorage.setItem("viewed", JSON.stringify(this.state.viewedProducts));
   }
+  // ---------------------select country
+  selectCountry = (value) => {
+    this.setState({ ourCofeeDataFilter: value });
+  };
+
+  findCountry = (arr, state) => {
+    if (!state) {
+      return arr;
+    }
+    return arr.filter((elem) => elem.country === state);
+  };
+  costValue = (value) => {
+    this.setState({ ourCofeeSortCost: value });
+  };
 
   render() {
     const total = this.state.productsInCart.reduce((acc, curr) => {
       return acc + curr.counter * curr.cost;
     }, 0);
+    const produstsToCountry = this.findCountry(
+      this.state.productsData,
+      this.state.ourCofeeDataFilter
+    );
 
-    const { productsData, shoppingCartState, productPrewiew, productsInCart } =
-      this.state;
+    const {
+      productsData,
+      shoppingCartState,
+      productPrewiew,
+      productsInCart,
+      ourCofeeSortCost,
+      viewedProducts,
+    } = this.state;
     return (
       <div className="App">
         <Header
@@ -196,14 +230,32 @@ class App extends React.Component {
                 getFormData={this.testSend}
                 formMessage={this.state.formMessage}
                 findIdProductForPrewiew={this.findIdProductForPrewiew}
-                // addProductToCart={this.addProductToCart}
               />
             }
           />
-          <Route path="ourCoffe" element={<OurCoffe />} />
-          <Route path="pleasure" element={<Pleasure />} />
           <Route
-            path="more/*"
+            path="ourCoffe"
+            element={
+              <OurCoffe
+                findIdProductForPrewiew={this.findIdProductForPrewiew}
+                selectCountry={this.selectCountry}
+                produstsToCountry={produstsToCountry}
+                costValue={this.costValue}
+                ourCofeeSortCost={ourCofeeSortCost}
+              />
+            }
+          />
+          <Route
+            path="pleasure"
+            element={
+              <Pleasure
+                viewedProducts={viewedProducts}
+                findIdProductForPrewiew={this.findIdProductForPrewiew}
+              />
+            }
+          />
+          <Route
+            path="more"
             element={
               <More
                 addProductToCart={this.addProductToCart}
@@ -223,6 +275,7 @@ class App extends React.Component {
               />
             }
           />
+<<<<<<< HEAD
           {/* ----------------------------- */}
           <Route
             path="more/productPrewiew"
@@ -233,6 +286,23 @@ class App extends React.Component {
                 toggleShoppingCart={this.toggleShoppingCart}
               />
             }
+=======
+          <Route
+            path="more/productPrewiew"
+            element={<Navigate to="/productPrewiew" replace />}
+          />
+          <Route
+            path="ourCoffe/productPrewiew"
+            element={<Navigate to="/productPrewiew" replace />}
+          />
+          <Route
+            path="pleasure/productPrewiew"
+            element={<Navigate to="/productPrewiew" replace />}
+          />
+          <Route
+            path="productPrewiew/ourCoffe"
+            element={<Navigate to="/ourCoffe" replace />}
+>>>>>>> 07bbb03621956c231ce1016f9232a612248306a3
           />
         </Routes>
 
@@ -249,10 +319,6 @@ class App extends React.Component {
           confirmOrder={this.confirmOrder}
           formMessage={this.state.formMessage}
         />
-        {/* <PrewiewProductCard
-          productPrewiew={productPrewiew}
-          productPrewiewState={productPrewiewState}
-        /> */}
       </div>
     );
   }

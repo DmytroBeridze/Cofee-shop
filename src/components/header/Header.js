@@ -15,14 +15,21 @@ export default class Header extends React.Component {
   toggleBurger = () => {
     this.setState({ burgerState: !this.state.burgerState });
   };
+  closeBurger = () => {
+    this.setState({ burgerState: false });
+  };
 
   render() {
+    document.body.style = this.state.burgerState
+      ? "overflow:hidden"
+      : "overflow:auto";
     return (
       <header className={styles.header}>
         <div className="container">
           <Navigation
             fontColor="#fff"
             toggleBurger={this.toggleBurger}
+            closeBurger={this.closeBurger}
             burgerState={this.state.burgerState}
             listItemsData={this.props.listItemsData}
           />

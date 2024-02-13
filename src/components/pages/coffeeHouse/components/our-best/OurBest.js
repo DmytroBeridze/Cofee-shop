@@ -15,7 +15,6 @@ export default function OurBest({
           elem={elem}
           key={elem.id}
           findIdProductForPrewiew={findIdProductForPrewiew}
-          // addProductToCart={addProductToCart}
         />
       );
     });
