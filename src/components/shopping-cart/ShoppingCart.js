@@ -36,16 +36,18 @@ export default function ShoppingCart({
           <div className="shopping-cart__best">{bestMark}</div>
         </div>
         <div className="shopping-cart__order-wrapper">
-          <div className="shopping-cart__quantity">{counter}</div>
           <div className="shopping-cart__counter-wrapper">
             <div
-              className="shopping-cart__counter"
+              className="shopping-cart__counter shopping-cart__counter_up"
               onClick={() => productCounterIncrease(id)}
             >
               <ArrowUp />
             </div>
+
+            <div className="shopping-cart__quantity">{counter}</div>
+
             <div
-              className="shopping-cart__counter"
+              className="shopping-cart__counter shopping-cart__counter_down"
               onClick={() => productCounterDecrease(id)}
             >
               <ArrowDown />

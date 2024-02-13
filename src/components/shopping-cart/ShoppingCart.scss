@@ -32,7 +32,7 @@
   }
   &__order-wrapper {
     display: flex;
-    gap: 90px;
+    gap: 65px;
     align-items: center;
     @media (max-width: 1140px) and (min-width: 1000px) {
       gap: 40px;
@@ -52,20 +52,47 @@
   &__quantity {
     width: 20px;
     text-align: center;
+    line-height: 1;
   }
   &__counter-wrapper {
     width: 30px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 5px;
+    @media (max-width: 1050px) {
+      flex-direction: row-reverse;
+      min-width: 60px;
+    }
   }
   &__counter {
-    width: 20px;
-    height: 20px;
+    width: 18px;
+    height: 18px;
+    position: relative;
     cursor: pointer;
+    &_up {
+      transform: rotate(-90deg);
+      @media (max-width: 1050px) {
+        transform: rotate(360deg);
+      }
+    }
+    &_down {
+      transform: rotate(90deg);
+      @media (max-width: 1050px) {
+        transform: rotate(-180deg);
+      }
+    }
+  }
+  &__arrUp {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
   }
   &__prise {
-    width: 60px;
+    width: 80px;
     text-align: center;
   }
   &__body {
@@ -188,11 +215,9 @@
   }
 }
 
-#Capa_1:hover :active {
+#Capa_1,
+:hover :active {
   fill: #a29d9d;
-}
-#Capa_1 {
-  position: relative;
 }
 
 #Capa_2:hover :active {
