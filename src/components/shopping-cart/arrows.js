@@ -3,7 +3,7 @@ const ArrowUp = () => {
     <svg
       id="Capa_1"
       viewBox="0 0 7 14"
-      enable-background="new 0 0 7 14"
+      enableBackground="new 0 0 7 14"
       className="shopping-cart__arrUp"
       width="100%"
       height="100%"
@@ -35,7 +35,7 @@ const ArrowDown = () => {
     <svg
       id="Capa_2"
       viewBox="0 0 7 14"
-      enable-background="new 0 0 7 14"
+      enableBackground="new 0 0 7 14"
       className="shopping-cart__arrUp"
       width="100%"
       height="100%"

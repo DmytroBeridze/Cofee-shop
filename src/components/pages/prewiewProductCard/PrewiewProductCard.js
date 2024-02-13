@@ -10,25 +10,11 @@ export default function PrewiewProductCard({
   const { id, image, name, country, weight, cost, best, description, counter } =
     productPrewiew;
   return (
-<<<<<<< HEAD
-    <section className="prewiewProductCard">
-      <div className="prewiewProductCard__photo">
-        <img
-          src={window.location.origin + `/img/product-images/${image}`}
-          alt="product"
-        />
-      </div>
-      <div className="prewiewProductCard__description">
-        <h3 className="prewiewProductCard__name">{name}</h3>
-        <div className="prewiewProductCard__weight">
-          Weight: <span>{weight} kg</span>
-=======
     <>
       <OurCoffeeMain />
       <section className="prewiewProductCard">
         <div className="prewiewProductCard__photo">
           <img src={`./img/product-images/${image}`} alt="product" />
->>>>>>> 07bbb03621956c231ce1016f9232a612248306a3
         </div>
         <div className="prewiewProductCard__description">
           <h2 className="prewiewProductCard__title">About it</h2>

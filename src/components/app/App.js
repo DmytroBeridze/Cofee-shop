@@ -275,18 +275,7 @@ class App extends React.Component {
               />
             }
           />
-<<<<<<< HEAD
-          {/* ----------------------------- */}
-          <Route
-            path="more/productPrewiew"
-            element={
-              <PrewiewProductCard
-                productPrewiew={productPrewiew}
-                addProductToCart={this.addProductToCart}
-                toggleShoppingCart={this.toggleShoppingCart}
-              />
-            }
-=======
+
           <Route
             path="more/productPrewiew"
             element={<Navigate to="/productPrewiew" replace />}
@@ -302,7 +291,6 @@ class App extends React.Component {
           <Route
             path="productPrewiew/ourCoffe"
             element={<Navigate to="/ourCoffe" replace />}
->>>>>>> 07bbb03621956c231ce1016f9232a612248306a3
           />
         </Routes>
 
