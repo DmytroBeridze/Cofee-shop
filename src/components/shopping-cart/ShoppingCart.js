@@ -113,7 +113,6 @@ export default function ShoppingCart({
             src={window.location.origin + `/icons/header/white-close.png`}
             alt="close"
           />
-          {/* <img src="./icons/header/white-close.png" alt="close" /> */}
         </div>
       </div>
       <ul className="shopping-cart__list">{listElement}</ul>

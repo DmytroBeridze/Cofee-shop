@@ -33,7 +33,6 @@ export default function PrewiewProductCard({
           <div className="prewiewProductCard__price">
             <span>Price: </span> {cost}$
           </div>
-          {/* <div className="prewiewProductCard__purchase"> */}
           <input
             name="add"
             className="prewiewProductCard__btn prewiewProductCard__btn_addCart"

@@ -1,5 +1,3 @@
-import "./App.scss";
-
 import { Navigate, Route, Routes } from "react-router-dom";
 import React, { useEffect } from "react";
 
@@ -26,7 +24,6 @@ class App extends React.Component {
       shoppingCartState: false,
       formMessage: "",
       quantityProduct: 0,
-      // ----------
       viewedProducts: [],
     };
 

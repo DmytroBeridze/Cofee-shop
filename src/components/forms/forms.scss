@@ -38,7 +38,6 @@
   @media (max-width: 1150px) {
     flex-direction: column;
     margin-left: -50px;
-    // margin-left: 0px;
   }
   @media (max-width: 500px) {
     margin-left: 0px;
@@ -51,7 +50,6 @@
     z-index: 2;
   }
   &__inputs-wrapper {
-    // margin: 0 auto;
     display: flex;
     gap: 30px;
     align-items: center;
@@ -78,7 +76,6 @@
     font-size: 14px;
   }
   & input {
-    // width: clamp(5rem, 1.071rem + 19.64vw, 18.75rem);
     height: 40px;
     border-radius: 5px;
     padding: 0 10px;
@@ -87,7 +84,6 @@
     box-shadow: 0px 0px 15px -3px rgba(0, 0, 0, 0.91);
     @media (max-width: 850px) {
       width: clamp(12.5rem, 1.179rem + 56.6vw, 31.25rem);
-      //   width: clamp(6.25rem, -8.844rem + 75.47vw, 31.25rem);
     }
   }
 }
@@ -120,9 +116,6 @@
     transform: translateX(0);
   }
 }
-// .main-form__name.inputError {
-//   border: 1px solid red;
-// }
 
 .user-error {
   position: absolute;

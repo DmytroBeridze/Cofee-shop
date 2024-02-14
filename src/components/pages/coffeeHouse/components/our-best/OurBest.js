@@ -2,11 +2,7 @@ import CoffeeCarousel from "../../../../carousel/Carousel";
 import ProductCard from "../../../../product-card/ProductCard";
 import "./OurBest.scss";
 
-export default function OurBest({
-  productsData,
-  findIdProductForPrewiew,
-  addProductToCart,
-}) {
+export default function OurBest({ productsData, findIdProductForPrewiew }) {
   const productCard = productsData
     .filter((item) => item.best)
     .map((elem) => {

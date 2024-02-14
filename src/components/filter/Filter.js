@@ -22,7 +22,6 @@ export default function Filter({ selectCountry, costValue }) {
           <option value="colombia">Colombia</option>
           <option value="guatemala">Guatemala</option>
         </select>
-        {/* <input type="se" placeholder="start typing here..." /> */}
       </div>
       <div className="filter__or-filter">
         <label htmlFor="expensive">Or filter</label>
