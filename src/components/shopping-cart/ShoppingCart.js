@@ -1,6 +1,7 @@
+import "./ShoppingCart.scss";
 import { ArrowUp, ArrowDown } from "./arrows.js";
 import ShoppingCardForm from "../shopping-card-form/ShoppingCardForm";
-import "./ShoppingCart.scss";
+import { ReactComponent as TeapotCoffeeHotDrink } from "./teapot_coffee_hot_drink_cup_icon_142406.svg";
 
 export default function ShoppingCart({
   shoppingCartState,
@@ -127,6 +128,9 @@ export default function ShoppingCart({
           <span> Total price:</span>
           <div className="shopping-cart__total-prise">{total.toFixed(2)} $</div>
         </div>
+      </div>
+      <div className="shopping-cart__footer-icon">
+        <TeapotCoffeeHotDrink />
       </div>
     </div>
   );
